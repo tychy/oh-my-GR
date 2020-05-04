@@ -1,0 +1,52 @@
+\documentclass{jsarticle}
+\usepackage{newtxtt}
+\begin{document}
+
+\section{86 クリストッフェル記号と計量テンソル}
+
+\subsection{導きたい結果}
+
+計量テンソルの共変微分が0であること
+\begin{equation}
+    Dg_{ik} = 0 \label{eq:Dg}
+\end{equation}
+クリストッフェル記号の計量テンソルによる表示(86.3)
+\begin{equation}
+    \Gamma^{i}_{kl} =
+    g^{im} 
+    \left(
+    \frac{\partial{g_{mk}}}{\partial{x^{l}}}
+     +
+    \frac{\partial{g_{lm}}}{\partial{x^{k}}}
+     -
+    \frac{\partial{g_{lk}}}{\partial{x^{m}}}
+    \right)
+\end{equation}
+縮約されたクリストッフェル記号
+
+\begin{equation}
+    \Gamma^{i}_{ki} =
+    \frac{\partial{ln\sqrt{-g}}}{\partial{x^{k}}}
+\end{equation}
+曲線座標におけるベクトルの発散
+\begin{equation}
+    A^{i}_{;i} = 
+    \frac{1}{\sqrt{-g}}\frac{\partial \sqrt{-g}A^{i}}{\partial{x^{i}}}
+\end{equation}
+曲線座標におけるテンソルの発散
+
+
+曲線座標におけるラプラシアン
+\begin{equation}
+    \phi^{;i}_{;i} = 
+    \frac{1}{\sqrt{-g}}
+    \frac{\partial}{\partial{x^{i}}}
+    \left(
+        \sqrt{-g}g^{ik} \frac{\partial\phi}{x^{k}}
+    \right)
+\end{equation}
+ガウスの定理
+
+\subsection{計量テンソルの共変微分(86.1)}
+
+\end{document}
