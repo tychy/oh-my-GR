@@ -2,6 +2,7 @@
 \usepackage{amssymb,amsmath}
 \usepackage{newtxtt}
 \usepackage[utf8]{inputenc}
+\newcommand{\pder}[2][]{\frac{\partial#1}{\partial#2}}
 \begin{document}
 
 \section{86節 クリストッフェル記号と計量テンソル}
@@ -100,7 +101,7 @@ $DA^{k}$はベクトルであるので、%ここあやしい
 \begin{equation}
     \Gamma^{i}_{ki} =
     \frac{1}{2}g^{im} 
-    \frac{\partial{g_{im}}}{\partial{x^{k}}}
+    \frac{\partial{g_{im}}}{\partial{x^{k}}}\label{eq:gammaiki}
 \end{equation}
 ここで、行列式の微分について考える。
 正方行列$A=(a_{ij})$の逆行列を$A^{-1}=(b_{ij})$、余因子を$\tilde{A}=(\tilde{a}_{ij})=(\triangle_{ji})$と書く。
@@ -126,13 +127,23 @@ $A\tilde{A}=(detA)E$について、$A\tilde{A} = (c_{ij})$と書くと：
     |A| &= \sum_{j}a_{ij}\triangle_{ji}\\
         &= \sum_{j}a_{ij}\tilde{a}_{ij}\\
     \frac{\partial{|A|}}{\partial{a_{ij}}} &= \tilde{a}_{ji}\\
-                                           &= |A|b_{ji}
+                                           &= |A|b_{ji}\\
+    \frac{\partial{|A|}}{\partial{a_{ij}}}\frac{\partial{a_{ij}}}{\partial{x}} &= |A|b_{ji}\frac{\partial{a_{ij}}}{\partial{x}}\\
+    \frac{\partial{|A|}}{\partial{x}} &= |A|b_{ji}\frac{\partial{a_{ij}}}{\partial{x}}
 \end{align}
+ここで$A$を計量テンソルにして、
 \begin{equation}
-    \Gamma^{i}_{ki} =
-    \frac{\partial{ln\sqrt{-g}}}{\partial{x^{k}}}
+    \frac{\partial{g}}{\partial{x}} = gg^{ij}\frac{\partial{g_{ij}}}{\partial{x}} 
 \end{equation}
-曲線座標におけるベクトルの発散
+\eqref{eq:gammaiki}は書き換えることができて、
+\begin{align}
+    \Gamma^{i}_{ki} &= \frac{1}{2g}\pder[g]{x^k}\\%\frac{\partial{g}}{\partial{x^{k}}}\\
+                    &= \pder[\ln{\sqrt{-g}}]{x^k}
+\end{align}
+となる。
+\subsection{曲線座標におけるベクトルの発散}
+準備として$g^{kl}\Gamma^{i}_{kl}$について、
+
 \begin{equation}
     A^{i}_{;i} = 
     \frac{1}{\sqrt{-g}}\frac{\partial \sqrt{-g}A^{i}}{\partial{x^{i}}}
