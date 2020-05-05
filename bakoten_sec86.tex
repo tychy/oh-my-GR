@@ -1,6 +1,7 @@
 \documentclass{jsarticle}
-\usepackage{amsmath}
+\usepackage{amssymb,amsmath}
 \usepackage{newtxtt}
+\usepackage[utf8]{inputenc}
 \begin{document}
 
 \section{86節 クリストッフェル記号と計量テンソル}
@@ -81,9 +82,52 @@ $DA^{k}$はベクトルであるので、%ここあやしい
     \right)
     \label{eq:gamma2}
 \end{align}
-\subsection{
-縮約されたクリストッフェル記号
-}
+\subsection{縮約されたクリストッフェル記号}
+例えば、この章のテンソルの発散や、リッチテンソルの対称性の部分で使われる。\\
+\eqref{eq:gamma2}から、
+\begin{equation}
+    \Gamma^{i}_{ki} =
+    \frac{1}{2}g^{im} 
+    \left(
+    \frac{\partial{g_{mk}}}{\partial{x^{i}}}
+     +
+    \frac{\partial{g_{im}}}{\partial{x^{k}}}
+     -
+    \frac{\partial{g_{ik}}}{\partial{x^{m}}}
+    \right)
+\end{equation}
+右辺だけに注目して、$(i, m)$の入れ替えを考えると第1項と第3項は打ち消し合う。このとき、左辺に$i$があることは影響しない。
+\begin{equation}
+    \Gamma^{i}_{ki} =
+    \frac{1}{2}g^{im} 
+    \frac{\partial{g_{im}}}{\partial{x^{k}}}
+\end{equation}
+ここで、行列式の微分について考える。
+正方行列$A=(a_{ij})$の逆行列を$A^{-1}=(b_{ij})$、余因子を$\tilde{A}=(\tilde{a}_{ij})=(\triangle_{ji})$と書く。
+$A\tilde{A}=(detA)E$について、$A\tilde{A} = (c_{ij})$と書くと：
+\begin{align}
+    c_{ij} &= \sum_{k}a_{ik}\tilde{A}_{kj}\\
+           &= \sum_{k}a_{ik}\triangle_{jk}\\
+           &= \begin{vmatrix}
+                a_{11} & \dots & a_{1n}\\
+                \hdotsfor{3}\\
+                a_{j-1,1} & \dots & a_{j-1,n}\\
+                a_{i1} & \dots & a_{in}\\
+                a_{j+1,1} & \dots & a_{j+1,n}\\
+                \hdotsfor{3}\\
+                a_{n1} & \dots & a_{nn}
+            \end{vmatrix}\label{eq:vmat}\\
+           &= (detA)\delta_{ij}\label{eq:cij}\\
+    \therefore A\tilde{A}=(detA)E\\
+    A^{-1} = \frac{\tilde{A}}{detA}
+\end{align}
+\eqref{eq:vmat}から\eqref{eq:cij}で、同じ行があると行列式が0になることを用いた。
+\begin{align}
+    |A| &= \sum_{j}a_{ij}\triangle_{ji}\\
+        &= \sum_{j}a_{ij}\tilde{a}_{ij}\\
+    \frac{\partial{|A|}}{\partial{a_{ij}}} &= \tilde{a}_{ji}\\
+                                           &= |A|b_{ji}
+\end{align}
 \begin{equation}
     \Gamma^{i}_{ki} =
     \frac{\partial{ln\sqrt{-g}}}{\partial{x^{k}}}
