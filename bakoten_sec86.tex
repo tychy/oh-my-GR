@@ -135,15 +135,38 @@ $A\tilde{A}=(detA)E$について、$A\tilde{A} = (c_{ij})$と書くと：
 \begin{equation}
     \frac{\partial{g}}{\partial{x}} = gg^{ij}\frac{\partial{g_{ij}}}{\partial{x}} 
 \end{equation}
+また、$g_{ik}g^{ik}=4$より、$g^{ik}dg_{ik}=-g_{ik}dg^{ik}$であることから、
+\begin{equation}
+    \frac{\partial{g}}{\partial{x}} = -gg_{ij}\frac{\partial{g^{ij}}}{\partial{x}} 
+\end{equation}
 \eqref{eq:gammaiki}は書き換えることができて、
 \begin{align}
     \Gamma^{i}_{ki} &= \frac{1}{2g}\pder[g]{x^k}\\%\frac{\partial{g}}{\partial{x^{k}}}\\
                     &= \pder[\ln{\sqrt{-g}}]{x^k}
 \end{align}
 となる。
-\subsection{曲線座標におけるベクトルの発散}
-準備として$g^{kl}\Gamma^{i}_{kl}$について、
+補足として$g^{kl}\Gamma^{i}_{kl}$について、
+\begin{align}
+    g^{kl}\Gamma^{i}_{kl} &=
+    \frac{1}{2}g^{kl}g^{im} 
+    \left(
+    \frac{\partial{g_{mk}}}{\partial{x^{l}}}
+     +
+    \frac{\partial{g_{lm}}}{\partial{x^{k}}}
+     -
+    \frac{\partial{g_{lk}}}{\partial{x^{m}}}
+    \right)\\
+    &=
+    g^{kl}g^{im} 
+    \left(
+    \frac{\partial{g_{mk}}}{\partial{x^{l}}}
+     -
+    \frac{1}{2}\frac{\partial{g_{lk}}}{\partial{x^{m}}}
+    \right)\\
+    &= 
+\end{align}
 
+\subsection{曲線座標におけるベクトルの発散}
 \begin{equation}
     A^{i}_{;i} = 
     \frac{1}{\sqrt{-g}}\frac{\partial \sqrt{-g}A^{i}}{\partial{x^{i}}}
