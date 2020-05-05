@@ -1,19 +1,77 @@
 \documentclass{jsarticle}
+\usepackage{amsmath}
 \usepackage{newtxtt}
 \begin{document}
 
-\section{86 クリストッフェル記号と計量テンソル}
+\section{86節 クリストッフェル記号と計量テンソル}
 
-\subsection{導きたい結果}
-
-計量テンソルの共変微分が0であること
+\subsection{計量テンソルの共変導関数}
+%は、平行移動によって内積が変化しないことと等価で、
+%クリストッフェル記号によって共変微分を一意的に与えたことから導出される。
+計量テンソルの共変導関数が0であることを示す。\\
+$DA^{k}$はベクトルであるので、%ここあやしい
+\begin{equation}
+    DA_{i} = g_{ik} DA^{k}\label{eq:dag}
+\end{equation}
+ここで、$A_{i} = g_{ik} A^{k}$を直接用いて、
+\begin{align}
+    DA_{i} &= D(g_{ik}A^{k}) \notag\\
+           &= A^{k}Dg_{ik} + g_{ik} DA^{k}\label{eq:adggda}
+\end{align}
+式\eqref{eq:dag}と式\eqref{eq:adggda}を比べて、$A^{k}$は任意のベクトルなので
+計量テンソル$g_{ik}$の共変微分について：
 \begin{equation}
     Dg_{ik} = 0 \label{eq:Dg}
 \end{equation}
-クリストッフェル記号の計量テンソルによる表示(86.3)
+また、$g_{ik}g^{ik}=g_{ik}g^{ki}=\delta^{i}_{i}=4$より、
+\begin{align}
+    0 &= D(g_{ik}g^{ik}) \\
+      &= g_{ik}Dg^{ik} + g^{ik}Dg_{ik}
+\end{align}
+\eqref{eq:Dg}より、
 \begin{equation}
-    \Gamma^{i}_{kl} =
-    g^{im} 
+    Dg^{ik} = 0
+\end{equation}
+共変導関数についても、
+\begin{align}
+    g_{ik;l} = 0 \label{eq:gikl}\\
+    g^{ik}_{;l} = 0
+\end{align}
+
+\subsection{クリストッフェル記号の計量テンソルによる表示}
+\eqref{eq:gikl}をクリストッフェル記号を使って展開する。
+85節の共変テンソルの導関数から、
+\begin{align}
+    g_{ik;l} &= \frac{\partial{g_{ik}}}{\partial{x^{l}}} - 
+    \Gamma^{m}_{il} g_{mk} - \Gamma^{m}_{kl}g_{im}\\
+    &= 0\\
+    \frac{\partial{g_{ik}}}{\partial{x^{l}}} &= 
+    \Gamma^{m}_{il} g_{mk} + \Gamma^{m}_{kl}g_{im}\\
+    &= \Gamma_{k,il} + \Gamma_{i,kl}
+    \label{eq:gikxl}\\
+    \frac{\partial{g_{kl}}}{\partial{x^{i}}} 
+    &= \Gamma_{k,li} + \Gamma_{l,ki}
+    \label{eq:gklxi}\\
+    \frac{\partial{g_{li}}}{\partial{x^{k}}} 
+    &= \Gamma_{l,ik} + \Gamma_{i,lk}
+    \label{eq:glixk}
+\end{align}
+クリストッフェル記号の添字の先頭は、$(i, k) (k, l) (l, i)$であるので、
+\eqref{eq:gikxl} + \eqref{eq:glixk} - \eqref{eq:gklxi}を計算して、
+\begin{align}
+    \Gamma_{i,kl} &=
+    \frac{1}{2}
+    \left(
+    \frac{\partial{g_{ik}}}{\partial{x^{l}}}
+     +
+    \frac{\partial{g_{li}}}{\partial{x^{k}}}
+     -
+    \frac{\partial{g_{lk}}}{\partial{x^{i}}}
+    \right)
+    \label{eq:gamma1}\\
+    \Gamma^{i}_{kl} &= g^{im} \Gamma_{m,kl}\\
+                    &=
+    \frac{1}{2}g^{im} 
     \left(
     \frac{\partial{g_{mk}}}{\partial{x^{l}}}
      +
@@ -21,9 +79,11 @@
      -
     \frac{\partial{g_{lk}}}{\partial{x^{m}}}
     \right)
-\end{equation}
+    \label{eq:gamma2}
+\end{align}
+\subsection{
 縮約されたクリストッフェル記号
-
+}
 \begin{equation}
     \Gamma^{i}_{ki} =
     \frac{\partial{ln\sqrt{-g}}}{\partial{x^{k}}}
@@ -47,6 +107,6 @@
 \end{equation}
 ガウスの定理
 
-\subsection{計量テンソルの共変微分(86.1)}
 
+\ref{eq:Dg}
 \end{document}
