@@ -14,7 +14,7 @@ $DA^{k}$はベクトルであるので、%ここあやしい
 \begin{equation}
     DA_{i} = g_{ik} DA^{k}\label{eq:dag}
 \end{equation}
-ここで、$A_{i} = g_{ik} A^{k}$を直接用いて、
+また、$A_{i} = g_{ik} A^{k}$を$DA_i$に直接代入すると、
 \begin{align}
     DA_{i} &= D(g_{ik}A^{k}) \notag\\
            &= A^{k}Dg_{ik} + g_{ik} DA^{k}\label{eq:adggda}
@@ -41,7 +41,7 @@ $DA^{k}$はベクトルであるので、%ここあやしい
 
 \subsection{クリストッフェル記号の計量テンソルによる表示}
 \eqref{eq:gikl}をクリストッフェル記号を使って展開する。
-85節の共変テンソルの導関数から、
+85節の共変テンソルの導関数の一般的な形式から、
 \begin{align}
     g_{ik;l} &= \frac{\partial{g_{ik}}}{\partial{x^{l}}} - 
     \Gamma^{m}_{il} g_{mk} - \Gamma^{m}_{kl}g_{im}\\
@@ -83,7 +83,7 @@ $DA^{k}$はベクトルであるので、%ここあやしい
     \label{eq:gamma2}
 \end{align}
 \subsection{縮約されたクリストッフェル記号}
-例えば、この章のテンソルの発散や、リッチテンソルの対称性の部分で使われる。\\
+(例えば、この章のテンソルの発散や、リッチテンソルの対称性の部分で使われる。)\\
 \eqref{eq:gamma2}から、
 \begin{equation}
     \Gamma^{i}_{ki} =
@@ -96,7 +96,7 @@ $DA^{k}$はベクトルであるので、%ここあやしい
     \frac{\partial{g_{ik}}}{\partial{x^{m}}}
     \right)
 \end{equation}
-右辺だけに注目して、$(i, m)$の入れ替えを考えると第1項と第3項は打ち消し合う。このとき、左辺に$i$があることは影響しない。
+右辺だけに注目して、$(i, m)$の入れ替えを考えると第1項と第3項は打ち消し合う。%このとき、左辺に$i$があることは影響しない。
 \begin{equation}
     \Gamma^{i}_{ki} =
     \frac{1}{2}g^{im} 
