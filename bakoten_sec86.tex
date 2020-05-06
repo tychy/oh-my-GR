@@ -145,7 +145,7 @@ $A\tilde{A}=(detA)E$について、$A\tilde{A} = (c_{ij})$と書くと：
                     &= \pder[\ln{\sqrt{-g}}]{x^k}
 \end{align}
 となる。
-補足として$g^{kl}\Gamma^{i}_{kl}$について、
+また、$g^{kl}\Gamma^{i}_{kl}$について、
 \begin{align}
     g^{kl}\Gamma^{i}_{kl} &=
     \frac{1}{2}g^{kl}g^{im} 
@@ -159,22 +159,60 @@ $A\tilde{A}=(detA)E$について、$A\tilde{A} = (c_{ij})$と書くと：
     &=
     g^{kl}g^{im} 
     \left(
-    \frac{\partial{g_{mk}}}{\partial{x^{l}}}
+    \frac{\partial{g_{ml}}}{\partial{x^{k}}}
      -
     \frac{1}{2}\frac{\partial{g_{lk}}}{\partial{x^{m}}}
     \right)\\
     &= 
+    g^{kl}g^{im} 
+    \frac{\partial{g_{ml}}}{\partial{x^{k}}}
+     -
+    \frac{1}{2}
+    g^{kl}g^{im} 
+    \frac{\partial{g_{lk}}}{\partial{x^{m}}}\label{eq:gg1}\\
+    &= 
+    g^{kl}\left(- \pder[g^{im}]{x^{k}}g_{ml}\right)
+    +
+    \frac{1}{2}g^{im}g_{kl}\pder[g^{kl}]{x^{m}}\label{eq:gg2}\\
+    &=
+    - \delta^{k}_{m} \pder[g^{im}]{x^k} + \frac{1}{2}g^{ik}g_{ml}\pder[g^{ml}]{x^{k}} 
+    \quad\left(k \leftrightarrow m\right)\\
+    &=
+    - \pder[g^{ik}]{x^k} - \frac{1}{2g}g^{ik}\pder[g]{x^{k}}\\
+    &=
+    - \frac{1}{\sqrt{-g}}\pder[\sqrt{-g}g^{ik}]{x^{k}}
 \end{align}
-
-\subsection{曲線座標におけるベクトルの発散}
+\eqref{eq:gg1}から\eqref{eq:gg2}で、
 \begin{equation}
-    A^{i}_{;i} = 
-    \frac{1}{\sqrt{-g}}\frac{\partial \sqrt{-g}A^{i}}{\partial{x^{i}}}
+    g_{ik}g^{kl} = \delta^l_i
 \end{equation}
-曲線座標におけるテンソルの発散
-
-
-曲線座標におけるラプラシアン
+から、
+\begin{equation}
+    g_{ik}\pder[g^{kl}]{x} = - g^{kl}\pder[g_{ik}]{x}
+\end{equation}
+という関係を使った。
+\subsection{曲線座標における発散}
+曲線座標におけるベクトルの発散を考える。
+\begin{align}
+    A^{i}_{;i} 
+    &= 
+    \pder[A^{i}]{x^i} + \Gamma^i_{ki}A^k\\
+    &=
+    \pder[A^{i}]{x^i} + A^k\pder[\ln{\sqrt{-g}}]{x^k}\\
+    &=
+    \frac{1}{\sqrt{-g}}\frac{\partial \sqrt{-g}A^{i}}{\partial{x^{i}}}
+    \label{eq:aidiv}
+\end{align}
+曲線座標におけるテンソルの発散は、\\
+曲線座標におけるラプラシアンについて、スカラー$\phi$を考える。
+\begin{equation}
+\phi_{;i} = \pder[\phi]{x^i}
+\end{equation}
+添字を上げて、
+\begin{equation}
+    \phi^{;i} = g^{ik}\pder[\phi]{x^k}
+\end{equation}
+\eqref{eq:aidiv}を使って発散を取ると、
 \begin{equation}
     \phi^{;i}_{;i} = 
     \frac{1}{\sqrt{-g}}
@@ -184,7 +222,5 @@ $A\tilde{A}=(detA)E$について、$A\tilde{A} = (c_{ij})$と書くと：
     \right)
 \end{equation}
 ガウスの定理
-
-
 \ref{eq:Dg}
 \end{document}
