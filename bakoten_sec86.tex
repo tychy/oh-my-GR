@@ -203,7 +203,81 @@ $A\tilde{A}=(detA)E$について、$A\tilde{A} = (c_{ij})$と書くと：
     \frac{1}{\sqrt{-g}}\frac{\partial \sqrt{-g}A^{i}}{\partial{x^{i}}}
     \label{eq:aidiv}
 \end{align}
-曲線座標におけるテンソルの発散は、\\
+\subsection{曲線座標におけるテンソルの発散}
+$A^{ik} = - A^{ki}$と書かれた反対称テンソルを考える。
+準備として$\Gamma^i_{mk}A^{km}$について、単に$k \leftrightarrow m$添字の入れ替えを考えると、
+\begin{equation}
+    \Gamma^i_{mk}A^{km} = \Gamma^i_{km}A^{mk}\label{eq:hantaisho1}
+\end{equation}
+$A^{km}$が反対称テンソルであることに注目すると、
+\begin{align}
+    \Gamma^i_{mk}A^{km} &= -\Gamma^i_{mk}A^{mk}\\
+                        &= -\Gamma^i_{km}A^{mk}\label{eq:hantaisho2}
+\end{align}
+\eqref{eq:hantaisho1}\eqref{eq:hantaisho2}より、
+\begin{equation}
+    \Gamma^i_{mk}A^{km} = 0\label{eq:hantaisho3}
+\end{equation}
+反対称テンソルの発散：
+\begin{align}
+    A^{ik}_{;k} 
+    &= 
+    \pder[A^{ik}]{x^k} + \Gamma^i_{mk}A^{mk} + \Gamma^k_{mk}A^{im}\\
+    &=
+    \pder[A^{ik}]{x^k} - \Gamma^i_{mk}A^{km} + \Gamma^k_{mk}A^{im}\\
+    &=
+    \pder[A^{ik}]{x^k} + \Gamma^k_{mk}A^{im}\\
+    &=
+    \pder[A^{ik}]{x^k} + A^{im}\pder[\ln{\sqrt{-g}}]{x^m}\\
+    &=
+    \frac{1}{\sqrt{-g}}\frac{\partial \sqrt{-g}A^{ik}}{\partial{x^{k}}}
+\end{align}
+を得た。\\
+次に、対称テンソル$A_{ik}$をとり、混合成分の発散$A^k_{i;k}$を計算する。
+\begin{align}
+    A^k_{i;k} 
+    &= 
+    \pder[A^k_i]{x^k} + \Gamma^k_{mk}A^m_i - \Gamma^m_{ik}A^k_m\\
+    &= 
+    \pder[A^k_i]{x^k} + A^m_i\pder[\ln{\sqrt{-g}}]{x^m} - \Gamma^m_{ik}A^k_m\\
+    &=
+    \frac{1}{\sqrt{-g}}\frac{\partial \sqrt{-g}A^k_i}{\partial{x^{k}}}
+    - \Gamma^m_{ik}A^k_m\\
+    &=
+    \frac{1}{\sqrt{-g}}\frac{\partial \sqrt{-g}A^k_i}{\partial{x^{k}}}
+    - 
+    \frac{1}{2}g^{ml} 
+    \left(
+    \frac{\partial{g_{lk}}}{\partial{x^{i}}}
+     +
+    \frac{\partial{g_{il}}}{\partial{x^{k}}}
+     -
+    \frac{\partial{g_{ik}}}{\partial{x^{l}}}
+    \right)
+    A^k_m\\
+    &= 
+    \frac{1}{\sqrt{-g}}\frac{\partial \sqrt{-g}A^k_i}{\partial{x^{k}}}
+    - 
+    \frac{1}{2} 
+    \left(
+    \frac{\partial{g_{lk}}}{\partial{x^{i}}}
+     +
+    \frac{\partial{g_{il}}}{\partial{x^{k}}}
+     -
+    \frac{\partial{g_{ik}}}{\partial{x^{l}}}
+    \right)
+    A^{kl}\\
+\end{align}
+$A^{kl}$が対称であるから、第二項で$k \leftrightarrow l$の入れ替えを考えると、
+\begin{equation}
+    A^k_{i;k} = 
+    \frac{1}{\sqrt{-g}}\frac{\partial \sqrt{-g}A^k_i}{\partial{x^{k}}}
+    - 
+    \frac{1}{2} 
+    \frac{\partial{g_{lk}}}{\partial{x^{i}}}
+    A^{kl}\\
+\end{equation}
+を得る。\\
 曲線座標におけるラプラシアンについて、スカラー$\phi$を考える。
 \begin{equation}
 \phi_{;i} = \pder[\phi]{x^i}
@@ -221,6 +295,10 @@ $A\tilde{A}=(detA)E$について、$A\tilde{A} = (c_{ij})$と書くと：
         \sqrt{-g}g^{ik} \frac{\partial\phi}{x^{k}}
     \right)
 \end{equation}
-ガウスの定理
-\ref{eq:Dg}
+\subsection{ガウスの定理}
+ベクトルの発散\eqref{eq:aidiv}を使って、曲線座標のガウスの定理は以下のようになる。
+\begin{align}
+    \int A^i_{;i} \sqrt{-g}d\Omega &= \int \pder[\sqrt{-g}A^i]{x^i}d\Omega\\
+                                   &= \oint \sqrt{-g}A^idS_i
+\end{align}
 \end{document}
