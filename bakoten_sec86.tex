@@ -125,10 +125,10 @@ $A\tilde{A}=(detA)E$について、$A\tilde{A} = (c_{ij})$と書くと：
 \begin{align}
     |A| &= \sum_{j}a_{ij}\triangle_{ji}\\
         &= \sum_{j}a_{ij}\tilde{a}_{ij}\\
-    \frac{\partial{|A|}}{\partial{a_{ij}}} &= \tilde{a}_{ji}\\
-                                           &= |A|b_{ji}\\
-    \frac{\partial{|A|}}{\partial{a_{ij}}}\frac{\partial{a_{ij}}}{\partial{x}} &= |A|b_{ji}\frac{\partial{a_{ij}}}{\partial{x}}\\
-    \frac{\partial{|A|}}{\partial{x}} &= |A|b_{ji}\frac{\partial{a_{ij}}}{\partial{x}}
+    \frac{\partial{|A|}}{\partial{a_{ij}}} &= \tilde{a}_{ij}\\
+                                           &= |A|b_{ij}\\
+    \frac{\partial{|A|}}{\partial{a_{ij}}}\frac{\partial{a_{ij}}}{\partial{x}} &= |A|b_{ij}\frac{\partial{a_{ij}}}{\partial{x}}\\
+    \frac{\partial{|A|}}{\partial{x}} &= |A|b_{ij}\frac{\partial{a_{ij}}}{\partial{x}}
 \end{align}
 ここで$A$を計量テンソルにして、
 \begin{equation}
@@ -300,4 +300,15 @@ $A^{kl}$が対称であるから、第二項で$k \leftrightarrow l$の入れ替
     \int A^i_{;i} \sqrt{-g}d\Omega &= \int \pder[\sqrt{-g}A^i]{x^i}d\Omega\\
                                    &= \oint \sqrt{-g}A^idS_i
 \end{align}
+\section{補足}
+内積が平行移動で変わらないことを要請すると、
+反変ベクトル$V^i,W^k$を考えて、この２つのベクトルが平行移動されたとする。($DV^i = 0, DW^i = 0$)
+\begin{align}
+    D(g_{ik}V^iW^k) = 0\\
+    V^iW^kDg_{ik} = 0
+\end{align}
+$V^i, W^k$は任意に取れるので、
+\begin{equation}
+    Dg_{ik} = 0
+\end{equation}
 \end{document}
