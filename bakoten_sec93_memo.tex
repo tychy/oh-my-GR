@@ -2,8 +2,16 @@
 \usepackage{amssymb,amsmath}
 \usepackage{newtxtt}
 \usepackage[utf8]{inputenc}
+\usepackage{GR}
 \newcommand{\pder}[2][]{\frac{\partial#1}{\partial#2}}
+\newcommand{\dder}[2][]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
 \newcommand{\half}{\frac{1}{2}}
+\newcommand{\pri}[1]{#1^{\prime}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\beql}[1]{\begin{equation}\label{#1}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\eeqp}{\;\;\;.\end{equation}}
+\newcommand{\eeqc}{\;\;\;,\end{equation}}
 \begin{document}
 \section{リーマン曲率テンソルの定義}
 \subsection{曲線座標のストークスの定理}
@@ -22,7 +30,26 @@
 \subsection{アイコナール方程式}
 \subsection{測地線偏差の方程式}
 \section{重力場の作用関数}
+\subsection{最小作用の原理}
+粒子の運動は最小作用の原理に従うことをここで要請する。
+つまり、作用$S$が、あってその作用を最小にするような経路を粒子が通ることを要請する。
+ここで、作用は：
+\beql{eq:S}
+    S = \int_{a}^{b} - \alpha ds
+\eeqp
+と書く。$\alpha$は正の定数で、なぜなら
+\beq \int_a^b ds\eeqp は、静止系で最大値を取るからである。
+証明：
+静止している時計$dt$に対して動いている時計$\pri{dt}$を考える。動いている系において動いている時計は静止している。
+世界感覚の普遍性から、
+\begin{align} 
+    ds^2 = cdt^2 - dx^2 - dy^2 - dz^2 = cdt^{\prime 2}\\
+    \pri{dt} = dt \sqrt{1 - \frac{v^2}{c^2}} 
+\end{align}
+つまり、$dt \geq \pri{dt}$がわかる。動いている時計は静止している時計よりも常に読みが小さい。
+時計の読みは、$\frac{1}{c} \int ds$に等しい。静止している時計の世界線は真っ直ぐであるから、真っ直ぐな世界線に対する作用が最大であることがわかる。
 \subsection{電磁気の場合}
+重ね合わせの原理を要請する。
 \subsection{重力場の作用関数}
 \end{document}
 
