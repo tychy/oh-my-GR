@@ -22,6 +22,7 @@
 \begin{document}
 \maketitle
 \section{99ニュートンの法則}
+\subsection{万有引力の法則}
 $\S 87$で見たニュートン近似の下で計量テンソルは、
 \beq
 g_{00} = 1 + \frac{2\phi}{c^2},g_{0\al} = 0,g_{\al \be} = \delta_{\al \be}
@@ -48,7 +49,7 @@ $i \neq k$のとき、$R^k_i$は
 \beq
     R^k_i = 0
 \eeq
-Ricciテンソルを計算する。
+リッチテンソルを計算する。
 まず、リッチテンソルの式(92.7)
 \beq
     R_{ik} =  \pder[\Gamma^l_{ik}]{x^l} - \pder[\Gamma^l_{il}]{x^k}
@@ -63,7 +64,13 @@ Ricciテンソルを計算する。
             \left( \pderx[]{l}(\pdergx[kt]{i} + \pdergx[it]{k} - \pdergx[ik]{t}) - \pderx[]{k}(\pdergx[lt]{i})\right)\\
             &= \half g^{lt} \left(
             \pikdergx[kt]{l}{i} + \pikdergx[it]{l}{k} - \pikdergx[ik]{l}{t} - \pikdergx[lt]{k}{i}
-            \right)
+            \right)\\
+    R_{00} &= \half g^{lt} \left(
+            \pikdergx[0t]{l}{0} + \pikdergx[0t]{l}{0} - \pikdergx[00]{l}{t} - \pikdergx[lt]{0}{0}
+            \right)\\
+           &\sim \half g^{\al \be}(- \pikdergx[00]{\al}{\be} )\\
+           &= \half \ppder[g_{00}]{x^\al}\\
+           &= \frac{1}{c^2} \ppder[\phi]{x^\al}
 \end{align}
 \beq
 R^0_0 = \frac{1}{c^2} \ppder[\phi]{{x^\alpha}} = \frac{4\pi k}{c^2} \mu
@@ -76,6 +83,22 @@ R^0_0 = \frac{1}{c^2} \ppder[\phi]{{x^\alpha}} = \frac{4\pi k}{c^2} \mu
 \beq
     \phi = -k \int \frac{\mu dV}{R}
 \eeq
+粒子が一つのときに、もう一つの粒子に働く力は、質量をそれぞれ$m,m^\prime$として
+\begin{align}
+    \phi &= - \frac{km}{R}\\
+    F &= - m^\prime \pder[\phi][R]\\
+      &= -m \frac{kmm^\prime}{R^2}
+\end{align}
+ニュートンの万有引力の法則を得た。
+質量密度を使ってポテンシャルエネルギーを、
+\beq
+U = \half \int \mu \phi dV
+\eeq
+と書く。
+\subsection{ポテンシャルの多重極展開}
+
+４重極モーメント
+\subsection{一様な楕円体の作るポテンシャル}
 
 \section{100}
 \section{101}
