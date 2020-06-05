@@ -1,9 +1,15 @@
 \documentclass{jsarticle}
 \usepackage{amssymb,amsmath}
 \usepackage{newtxtt}
+\usepackage{GR}
 \usepackage[utf8]{inputenc}
 \newcommand{\pder}[2][]{\frac{\partial#1}{\partial#2}}
 \newcommand{\dder}[2][]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
+\newcommand{\ppder}[2][]{\frac{\partial^2#1}{{\partial#2}^2}}
+\newcommand{\pikder}[3][]{\frac{\partial^2#1}{{\partial#2 \partial#3}}}
+\newcommand{\pikdergx}[3][]{\frac{\partial^2 g_{#1}}{{\partial x^{#2} \partial x^{#3}}}}
+\newcommand{\pderx}[2][]{\pder[#1]{x^{#2}}}
+\newcommand{\pdergx}[2][]{\pderx[g_{#1}]{#2}}
 \newcommand{\half}{\frac{1}{2}}
 \newcommand{\beq}{\begin{equation}}
 \newcommand{\beql}[1]{\begin{equation}\label{#1}}
@@ -12,9 +18,66 @@
 \newcommand{\eeqc}{\;\;\;,\end{equation}}
 \date{\today}
 \author{山田龍}
-\title{this is title}
+\title{99-101}
 \begin{document}
 \maketitle
+\section{99ニュートンの法則}
+$\S 87$で見たニュートン近似の下で計量テンソルは、
+\beq
+g_{00} = 1 + \frac{2\phi}{c^2},g_{0\al} = 0,g_{\al \be} = \delta_{\al \be}
+\eeq
+%ちゃんとかくtodo1
+巨視的な運動も遅いと近似しているので４元速度は、$u^\alpha = 0, u^0 = u_0 = 1$となり、
+巨視的物体のエネルギー運動量テンソルは、質量密度を$\mu = \sum_a m \delta(r-r_a)$と書いて、
+\begin{align}
+    T^k_{i} &= \mu c^2 u_i u^k\\
+    T^0_0 &= \mu c^2\\
+    T &= T^i_i = T^0_0 = \mu c^2
+\end{align}
+アインシュタイン方程式は、
+\beq
+    R^k_i = \frac{8\pi k}{c^4} (T^k_i - \half \delta^k_i T)
+\eeq
+であった。$R^0_0$は、
+\begin{align}
+    R^0_0 &= \frac{8\pi k}{c^4} (T^0_0 - \half T)\\
+        &= \frac{4\pi k}{c^2} \mu
+\end{align}
+% i = k = \alphaのときがわからないtodo 2
+$i \neq k$のとき、$R^k_i$は
+\beq
+    R^k_i = 0
+\eeq
+Ricciテンソルを計算する。
+まず、リッチテンソルの式(92.7)
+\beq
+    R_{ik} =  \pder[\Gamma^l_{ik}]{x^l} - \pder[\Gamma^l_{il}]{x^k}
++ \Gamma \Gamma - \Gamma \Gamma
+\eeq
+後ろの２つの項は、$\phi$についての二次の項なので、一次までの精度では落とせる。
+\begin{align}
+    R_{ik} &= \pder[\Gamma^l_{ik}]{x^l} - \pder[\Gamma^l_{il}]{x^k}\\
+           %&= \half g^{lt} \left( \pderx[]{l} \left(\Christd{t}{i}{k}\right) - 
+           %\pderx[]{k}\left(\Christd{t}{i}{t} \right)\right)\\
+            &= \half g^{lt} 
+            \left( \pderx[]{l}(\pdergx[kt]{i} + \pdergx[it]{k} - \pdergx[ik]{t}) - \pderx[]{k}(\pdergx[lt]{i})\right)\\
+            &= \half g^{lt} \left(
+            \pikdergx[kt]{l}{i} + \pikdergx[it]{l}{k} - \pikdergx[ik]{l}{t} - \pikdergx[lt]{k}{i}
+            \right)
+\end{align}
+\beq
+R^0_0 = \frac{1}{c^2} \ppder[\phi]{{x^\alpha}} = \frac{4\pi k}{c^2} \mu
+\eeq
+重力場の方程式は、ポアソン方程式になる。
+\beq
+    \Delta  \phi = 4 \pi k \mu
+\eeq
+この解は、
+\beq
+    \phi = -k \int \frac{\mu dV}{R}
+\eeq
 
+\section{100}
+\section{101}
 \end{document}
 
