@@ -11,12 +11,16 @@
 \newcommand{\pderx}[2][]{\pder[#1]{x^{#2}}}
 \newcommand{\pdergx}[2][]{\pderx[g_{#1}]{#2}}
 \newcommand{\half}{\frac{1}{2}}
+\newcommand{\hfpt}{\hspace{5pt}}
 \newcommand{\ddfrac}[2]{\frac{{#1}^2}{{#2}^2}}
 \newcommand{\beq}{\begin{equation}}
 \newcommand{\beql}[1]{\begin{equation}\label{#1}}
 \newcommand{\eeq}{\end{equation}}
 \newcommand{\eeqp}{\;\;\;.\end{equation}}
 \newcommand{\eeqc}{\;\;\;,\end{equation}}
+\newcommand{\GaT}[3]{\Gamma^{#1}_{#2 #3}}
+\newcommand{\Christfinside}[3]{\pdergx[#1 #3]{#2} + \pdergx[#3 #2]{#1} - \pdergx[#1 #2]{#3}}
+\newcommand{\Christf}[4]{\Gamma^{#1}_{#2 #3}=\half g^{#1 #4}(\Christfinside{#2}{#3}{#4})}
 \date{\today}
 \author{山田龍}
 \title{99-101}
@@ -54,7 +58,7 @@ $i \neq k$のとき、$R^k_i$は
 まず、リッチテンソルの式(92.7)
 \beq
     R_{ik} =  \pder[\Gamma^l_{ik}]{x^l} - \pder[\Gamma^l_{il}]{x^k}
-+ \Gamma \Gamma - \Gamma \Gamma
+    + \GaT{l}{i}{k}|GaT{m}{l}{m} - \GaT{m}{i}{l}\GaT{l}{k}{m}
 \eeq
 後ろの２つの項は、$\phi$についての二次の項なので、一次までの精度では落とせる。
 \begin{align}
@@ -133,20 +137,20 @@ D_{\al \be} = J_{\gamma \gamma}\delta_{\al \be} - 3 J_{\al \be}
 \ddfrac{x}{a} + \ddfrac{y}{b} + \ddfrac{z}{x} = 1
 \eeq
 物体の重力エネルギーは、$U = \half \int \mu \phi dV$であったので計算すると、
-
+%todo 3
 \subsection{問題}
 全体として等加速度で回転している、重力を及ぼすことのできる一様な液体の塊の釣り合いの形を求めよ\\
 解答:\\
-
+%todo 4
 \section{100}
 球対称な系を考える。
 まず、ガリレイ的な空間では
 \beq
-ds^2 = cdt^2 - dr^2 - r^2(d\theta^2 + sin\theta d\phi^2)
+ds^2 = cdt^2 - dr^2 - r^2(d\theta^2 + \sin^2\theta d\phi^2)
 \eeq
 球面上の曲線の長さから立体角を定義する。$dt = dr = 0$を考えて、
 \beq
-    dl^2 = r^2 (d\theta^2 + sin\theta^2 d\phi^2) \equiv r^2 d\Omega^2
+    dl^2 = r^2 (d\theta^2 + \sin^2\theta d\phi^2) \equiv r^2 d\Omega^2
 \eeq
 中心対称な重力場での二次元球について考える。場が中心対称ということは、線要素が
 \beq
@@ -155,7 +159,91 @@ ds^2 = cdt^2 - dr^2 - r^2(d\theta^2 + sin\theta d\phi^2)
 のように書かれ、このとき球面の面積は$4\pi f(r,t)$である。
 動径ベクトルを$f(r, t) \equiv r^{\prime 2}$と書き換えると、球面の面積は$4\pi r^{\prime 2}$になる。
 いま、$(r,t)$から$(r^\prime , t^\prime)$への変換をした。この変換では球対称性は失わない。ここで、$(r^\prime, t^\prime)$を$(r,t)$に書き換える。（空間は、rの割り付けられた二次元球面をt=一定の三次元空間に張り巡らせたもの。各二次元球面の中心はその二次元球面上にはない。）\\
+世界間隔は、
+\beq
+ds^2 = l(r, t) dt^ 2 -r^2 d\Omega^2 + h(r, t) dr^2 + a(r, t) dr dt
+\eeq
+$d\phi, d\theta$の一次の項は、$\phi \rightarrow -\phi$、$\theta \rightarrow \pi - \theta$の角度反転の対称性から消えた。
+$a(r, t)$は静的な重力場であることを要請して、$t \rightarrow -t$で計量が不変であることを考えると消える。そうでなくても、$(r^\prime, t^\prime)$の変換の任意性から消すことができる。（キーワード：積分因子？）
+%積分因子について書くb todo3
+\begin{align}
+    ds^2 &= l(r, t) dt^ 2 -r^2 d\Omega^2 + h(r, t) dr^2\\
+         &= e^\nu c^2 dt^ 2 -r^2 (d\theta^2 + \sin^2\theta d\phi^2) - e^\lambda dr^2
+\end{align}
+計量テンソルの$0$出ない成分は、
+\begin{align}
+    g_{00} = e^\nu \hfpt , g_{11} = -e^\lambda\hfpt ,g_{22} = -r^2\hfpt ,g_{33} = -r^2 \sin^2\theta\\
+    g^{00} = e^{-\nu} \hfpt , g^{11} = -e^{-\lambda\hfpt} ,g^{22} = -r^{-2}\hfpt ,g^{33} = -r^{-2} \sin^{-2}\theta\\
+\end{align}
+クリストッフェル記号の成分を計算すると、$\Gamma^i_{kl}=\half g^{it}(\pdergx[kt]{l} + \pdergx[tl]{k} - \pdergx[kl]{t})$から、$0$でない項は、
+\begin{align}
+    \Christf{0}{0}{0}{t} &=  \half g^{00} (\Christfinside{0}{0}{0}) = \frac{\dot{\nu}}{2}\\
+    \Christf{1}{1}{1}{t} &=  \half g^{11} (\Christfinside{1}{1}{1}) = \frac{\lambda^\prime}{2}\\
+    \Christf{0}{1}{0}{t} &=  \half g^{00} (\Christfinside{1}{0}{0}) = \frac{\nu^\prime}{2}\\
+    \Christf{0}{1}{1}{t} &=  \half g^{00} (\Christfinside{1}{1}{0}) = \frac{\dot{\lambda}}{2}e^{\lambda - \nu}\\
+    \Christf{1}{1}{0}{t} &=  \half g^{11} (\Christfinside{1}{0}{1}) = \frac{\dot{\lambda}}{2}\\
+    \Christf{1}{0}{0}{t} &=  \half g^{11} (\Christfinside{0}{0}{1}) = \frac{\nu^\prime }{2}e^{\nu - \lambda}\\
+    \Christf{1}{2}{2}{t} &=  \half g^{11} (\Christfinside{2}{2}{1}) = -re^{-\lambda}\\
+    \Christf{1}{3}{3}{t} &=  \half g^{11} (\Christfinside{3}{3}{1}) = -r\sin^2 \theta e^{-\lambda}\\
+    \Christf{2}{3}{3}{t} &=  \half g^{22} (\Christfinside{3}{3}{2}) = -\sin\theta \cos\theta\\
+    \Christf{3}{2}{3}{t} &=  \half g^{33} (\Christfinside{2}{3}{3}) = -\cot\theta\\
+    \Christf{2}{1}{2}{t} &=  \half g^{22} (\Christfinside{1}{2}{2}) = \frac{1}{r}\\
+    \Christf{3}{1}{3}{t} &=  \half g^{33} (\Christfinside{1}{3}{3}) = \frac{1}{r}\\
+\end{align}
+リッチテンソルの成分を計算すると、
+\beq
+    R_{ik} =  \pder[\Gamma^l_{ik}]{x^l} - \pder[\Gamma^l_{il}]{x^k}
+    + \GaT{l}{i}{k}|GaT{m}{l}{m} - \GaT{m}{i}{l}\GaT{l}{k}{m}
+\eeq
 
 \section{101}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}
 
