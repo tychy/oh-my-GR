@@ -75,7 +75,7 @@ $i \neq k$のとき、$R^k_i$は
 \beq
 R^0_0 = \frac{1}{c^2} \ppder[\phi]{{x^\alpha}} = \frac{4\pi k}{c^2} \mu
 \eeq
-重力場の方程式は、ポアソン方程式になる。
+重力ポテンシャルは、ポアソン方程式をみたす。
 \beq
     \Delta  \phi = 4 \pi k \mu
 \eeq
@@ -96,8 +96,25 @@ U = \half \int \mu \phi dV
 \eeq
 と書く。
 \subsection{ポテンシャルの多重極展開}
+不変な重力場では、質量が正であるから双極子モーメントを$0$にする座標系を取ることができる。
+したがって、すべての質量が位置$R_0$につくるポテンシャルは、$R_0$質点の位置よりも十分大きいとして、
+\beq
+\phi = -k \int dV \left(\frac{\mu}{R_0} + \half \mu x_\al x_\be \pikder[]{X_\al}{X_\be}(\frac{1}{R_0}) + \cdots \right)
+\eeq
+ここで、
+\beq
+    \Delta \frac{1}{R_0} = \delta_{\al \be} x_\al x_\be \pikder[]{X_\al}{X_\be}(\frac{1}{R_0}) = 0
+\eeq
+から、$\phi^{(2)}$は$x_\al x_\be$の自由度を一つ減じて
+\begin{align}
+    \phi^{(2)} &= -k \int dV \mu (x_\al x_\be - \frac{1}{3}r^2 \delta_{\al \be})\pikder[]{X_\al}{X_\be}(\frac{1}{R_0})\\
+               &= -k \int dV \frac{1}{6} D_{\al \be} \pikder[]{X_\al}{X_\be}(\frac{1}{R_0})
+\end{align}
+質量４重極モーメントテンソルとして、
+\beq
+D_{\al \be} = \int dV \mu(3x_\al x_\be - r^2 \delta_{\al \be})
+\eeq
 
-４重極モーメント
 \subsection{一様な楕円体の作るポテンシャル}
 
 \section{100}
