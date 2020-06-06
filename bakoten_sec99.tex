@@ -11,6 +11,7 @@
 \newcommand{\pderx}[2][]{\pder[#1]{x^{#2}}}
 \newcommand{\pdergx}[2][]{\pderx[g_{#1}]{#2}}
 \newcommand{\half}{\frac{1}{2}}
+\newcommand{\ddfrac}[2]{\frac{{#1}^2}{{#2}^2}}
 \newcommand{\beq}{\begin{equation}}
 \newcommand{\beql}[1]{\begin{equation}\label{#1}}
 \newcommand{\eeq}{\end{equation}}
@@ -114,10 +115,31 @@ U = \half \int \mu \phi dV
 \beq
 D_{\al \be} = \int dV \mu(3x_\al x_\be - r^2 \delta_{\al \be})
 \eeq
-
+これは慣性モーメントテンソル
+\beq
+    J_{\al \be} = \int \mu (r^2 \delta_{\al \be} - x_\al x_\be)
+\eeq
+\beq
+J_{\gamma \gamma} = \int 2 \mu r^2 dV 
+\eeq
+より、慣性モーメントテンソルで記述される。
+\beq
+D_{\al \be} = J_{\gamma \gamma}\delta_{\al \be} - 3 J_{\al \be}
+\eeq
 \subsection{一様な楕円体の作るポテンシャル}
+一様な楕円体を考える。質量密度を$\mu$とする。楕円体の表面は、
+%https://physics.stackexchange.com/questions/16412/the-gravitational-potential-of-ellipsoid
+\beq
+\ddfrac{x}{a} + \ddfrac{y}{b} + \ddfrac{z}{x} = 1
+\eeq
+物体の重力エネルギーは、$U = \half \int \mu \phi dV$であったので計算すると、
+
+\subsection{問題}
+全体として等加速度で回転している、重力を及ぼすことのできる一様な液体の塊の釣り合いの形を求めよ\\
+解答:\\
 
 \section{100}
+
 \section{101}
 \end{document}
 
