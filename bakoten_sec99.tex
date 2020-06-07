@@ -290,7 +290,54 @@ const =  - \frac{2km}{c^2}
 \beq
 ds^2 = (1 - \frac{r_g}{r})c^2dt^2 - r^2(\sin^2 \theta d\phi^2 +d\theta^2) - \frac{dr^2}{1-\frac{r_g}{r}}
 \eeq
-$r_g = \frac{2km}{c^2}$はシュバルツシルト半径または重力半径という。
+$r_g = \frac{2km}{c^2}$はシュヴァルツシルト半径または重力半径という。
+アインシュタイン方程式のこの解をシュヴァルツシルト解という。任意の中心対称な質量分布に対して、質量が静止していなくても、真空中の重量場を与える。
+空間的計量は、
+\beq
+dl^2 = \frac{dr^2}{1-\frac{r_g}{r}} + r^2 (\sin^2d\phi^2 + d\theta^2)
+\eeq
+rは円周が$2 \pi r$円の面積は$4 \pi r^2$になるようとった座標である。
+同じ半径上の、二次元円の表面に垂直に定義された動径ベクトルに沿った積分は、$r>r_g$で
+\beq
+\int^{r_2}_{r_1} \frac{dr}{\sqrt{1 - \frac{r_g}{r}}} > r_2 - r_1\label{eq:10017}
+\eeq
+また、$g_{00} = 1 - \frac{r_g}{r} \leq 1$がわかる。真の時間は、
+\beq
+d\tau = \sqrt{g_{00}} dt \leq dt
+\eeq
+等号成立は$r \rightarrow \infty$、これは無限遠の観測者から見ると重力場の中の時計が遅れることを意味する。
+十分離れたところでは、
+\begin{align}
+    ds^2 &= (1 - \frac{r_g}{r})c^2dt^2 - r^2(\sin^2 \theta d\phi^2 +d\theta^2) - \frac{dr^2}{1-\frac{r_g}{r}}\\
+&= c^2 dt^2 - dr^2 - r^2 d\Omega^2 - \frac{r_g}{r} (c^2 dt^2 + dr^2)\\
+&= ds_0^2 - \frac{r_g}{r} (c^2 dt^2 + dr^2)
+\end{align}
+$ds_0^2$はガリレイの計量を意味する。\\
+質量の内部の様子について考える。$r \rightarrow 0$での、重力場の方程式
+\begin{align}
+\epikcf T^0_0 &= (\frac{\lambda^\prime}{r} - \frac{1}{r^2})e^{-\lambda} + \frac{1}{r^2} \label{eq:t00ag}\\ 
+    \epikcf T^1_1 &= - (\frac{\nu^\prime}{r} + \frac{1}{r^2})e^{-\lambda} + \revrt \label{eq:t11ag}
+\end{align}
+を見ると、\eqref{eq:t00ag}から$T^0_0$が$r=0$で特異点を持たないためには、$\lambda$が0に向かうことがわかる。
+\begin{align}
+\epikcf T^0_0 r^2 &= (r \lambda^\prime - 1)e^{-\lambda} + 1\\ 
+\epikcf \int^r_0  T^0_0 r^2 &= \int^r_0 (r \lambda^\prime - 1)e^{-\lambda} + 1\\ 
+                            &= [-re^{-\lambda}]^r_0 + r = -r e^{-\lambda} + r = r(1 - e^{-\lambda})\\ 
+\lambda &= - ln\left(1 - \epikcf \frac{1}{r} \int^r_0  T^0_0 \right)\label{eq:lambda}
+\end{align}
+$T^0_0$の符号は一般的には決まった符号ではないが、ここでは
+\beq
+T^0_0 = g^{0i}T_{0i} = g^{00} T_{00} = e^{-\nu} T_{00} \geq 0
+\eeq
+$\lambda$の式\eqref{eq:lambda}を見ると$1 - \epikcf \frac{1}{r} \int^r_0  T^0_0 \geq 1$より、
+\beq
+\lambda \geq 0
+\eeq
+より
+\beq
+e^\lambda \geq 1
+\eeq
+
 \section{101}
 
 
