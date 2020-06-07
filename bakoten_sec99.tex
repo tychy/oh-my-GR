@@ -19,8 +19,12 @@
 \newcommand{\eeqp}{\;\;\;.\end{equation}}
 \newcommand{\eeqc}{\;\;\;,\end{equation}}
 \newcommand{\GaT}[3]{\Gamma^{#1}_{#2 #3}}
+\newcommand{\pderGaTx}[4]{\pderx[\GaT{#1}{#2}{#3}]{#4}}
 \newcommand{\Christfinside}[3]{\pdergx[#1 #3]{#2} + \pdergx[#3 #2]{#1} - \pdergx[#1 #2]{#3}}
 \newcommand{\Christf}[4]{\Gamma^{#1}_{#2 #3}=\half g^{#1 #4}(\Christfinside{#2}{#3}{#4})}
+\newcommand{\Ricchiinside}[2]{\pder[\Gamma^l_{#1 #2}]{x^l} - \pder[\Gamma^l_{#1 l}]{x^{#2}} 
++ \GaT{l}{#1}{#2}\GaT{m}{l}{m} - \GaT{m}{#1}{l}\GaT{l}{#2}{m}}
+
 \date{\today}
 \author{山田龍}
 \title{99-101}
@@ -58,7 +62,7 @@ $i \neq k$のとき、$R^k_i$は
 まず、リッチテンソルの式(92.7)
 \beq
     R_{ik} =  \pder[\Gamma^l_{ik}]{x^l} - \pder[\Gamma^l_{il}]{x^k}
-    + \GaT{l}{i}{k}|GaT{m}{l}{m} - \GaT{m}{i}{l}\GaT{l}{k}{m}
+    + \GaT{l}{i}{k}\GaT{m}{l}{m} - \GaT{m}{i}{l}\GaT{l}{k}{m}
 \eeq
 後ろの２つの項は、$\phi$についての二次の項なので、一次までの精度では落とせる。
 \begin{align}
@@ -193,9 +197,18 @@ $a(r, t)$は静的な重力場であることを要請して、$t \rightarrow -t
 リッチテンソルの成分を計算すると、
 \beq
     R_{ik} =  \pder[\Gamma^l_{ik}]{x^l} - \pder[\Gamma^l_{il}]{x^k}
-    + \GaT{l}{i}{k}|GaT{m}{l}{m} - \GaT{m}{i}{l}\GaT{l}{k}{m}
+    + \GaT{l}{i}{k}\GaT{m}{l}{m} - \GaT{m}{i}{l}\GaT{l}{k}{m}
 \eeq
-
+\begin{align}
+    R_{00} &= \Ricchiinside{0}{0}\\
+           &= \pderGaTx{l}{0}{0}{l} + \pderGaTx{l}{0}{l}{0} + \GaT{l}{0}{0}\GaT{m}{l}{m}\\
+    \pderGaTx{l}{0}{0}{l} &= \pderGaTx{0}{0}{0}{0} + \pderGaTx{1}{0}{0}{1}\\
+                          &= \pderx[\frac{\dot{\nu}}{2}]{0} + \pderx[\frac{\nu^\prime }{2}e^{\nu - \lambda}]{1} \\
+                          &= \pderx[\frac{\dot{\nu}}{2}]{0} + \frac{\nu^\prime }{2}\pderx[e^{\nu - \lambda}]{1} + e^{\nu - \lambda}\pderx[\frac{\nu^\prime }{2}]{1}\\ 
+                          &= \pderx[\frac{\dot{\nu}}{2}]{0} + \frac{\nu^\prime }{2}(\nu^\prime - \lambda^\prime)e^{\nu - \lambda}
+                          + e^{\nu - \lambda}\frac{\nu^{\prime \prime}}{2}\\ 
+    \pderGaTx{l}{0}{l}{0} &= \pderGaTx{0}{0}{0}{0} + \pderGaTx{1}{0}{1}{0}\\
+\end{align}
 \section{101}
 
 
