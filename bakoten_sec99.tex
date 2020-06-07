@@ -32,6 +32,10 @@
 \newcommand{\hladd}{\frac{\ddot{\lambda}}{2}}
 \newcommand{\nula}{\nu - \lambda}
 \newcommand{\enula}{e^{\nula}}
+\newcommand{\epikcf}{\frac{8 \pi k}{c^4}}
+\newcommand{\nup}{\nu^\prime}
+\newcommand{\lap}{\lambda^\prime}
+\newcommand{\revrt}{\frac{1}{r^2}}
 
 \date{\today}
 \author{山田龍}
@@ -223,7 +227,70 @@ $a(r, t)$は静的な重力場であることを要請して、$t \rightarrow -t
                                                             &= (\hnud)^2 + \hnup e^{\nu - \lambda} \hnup + \hnup \hnup e^{\nu - \lambda} + (\hlad)^2\\
                                 R_{00} &= \hnupp \enula  + \hnup \enula (\nu^\prime - \lambda^\prime) - \hladd + \hnud \hlad + \hnup \enula \hlap + \hnup \enula \frac{2}{r} - (\hnup)^2 \enula - (\hlad)^2
 \end{align}
-
+同じ手順を繰り返せば、
+% todo 埋める
+\begin{align}
+    R_{11} &= 
+    R_{22} &= 
+    R_{33} &= 
+    R_{01} &=
+\end{align}
+スカラー曲率は、
+\begin{align}
+    R &= g^{00} R_{00} + g^{11} R_{11}+ g^{22} R_{22}+ g^{22} R_{33}\\
+      &= - \lambda^{\prime \prime} + \nu^{\prime \prime} + 2 \frac{\nu^\prime}{r} e^{-\lambda} - \frac{2}{r^2} - \frac{2\lambda^\prime}{r}e^{-\lambda} + \hnup e^{-\lambda} (\nu^\prime - \lambda^\prime) - \hlad e^{-\nu}(\dot{\lambda} - \dot{\nu}) + \frac{2}{r^2} e^{-\lambda}\\
+\end{align}
+重力場の方程式は、
+\beq
+R_{ik} - \half g_{ik} R = \frac{8 \pi k}{c^4}T_{ik}
+\eeq
+を計算して、
+\begin{align}
+    \epikcf T^0_0 &= R^0_0 - \frac{R}{2} = (\frac{\lambda^\prime}{r} - \frac{1}{r^2})e^{-\lambda} + \frac{1}{r^2} \label{eq:t00}\\ 
+    \epikcf T^1_1 &= - (\frac{\nu^\prime}{r} + \frac{1}{r^2})e^{-\lambda} + \revrt \label{eq:t11}\\
+    \epikcf T^1_0 &= - e^{-\lambda} \frac{\dot{\lambda}}{r}
+\end{align}
+この方程式は、質量の外側の中心対称な場を考えると質量の外側ではエネルギー運動量テンソルが$0$になることから、
+\begin{align}
+(\frac{\lambda^\prime}{r} - \frac{1}{r^2})e^{-\lambda} + \frac{1}{r^2} = 0\\ 
+-(\frac{\nu^\prime}{r} + \frac{1}{r^2})e^{-\lambda} + \revrt = 0\label{eq:10009}\\
+- e^{-\lambda} \frac{\dot{\lambda}}{r} = 0 \label{eq:10010}
+\end{align}
+\eqref{eq:10010}は、
+\beq
+\dot{\lambda} = 0 
+\eeq
+と書き換えられ、$\lambda = \lambda (r)$と時間に依らない形に書ける。\eqref{eq:t00}\eqref{eq:t11}から、
+\beq
+\lap + \nup = 0
+\eeq
+記号の肩の$\prime$はrでの微分であったので、
+\beq
+\lambda + \nu = f(t)
+\eeq
+$t=f(t^\prime)$の変換を$\lambda + \nu = 0$が満たされるように行って、$\nu$もtによらない形なるので、真空中の中心対称な重力場は静的な場になる。
+\eqref{eq:10009}を積分する。両辺に$r^2$をかけて、
+\begin{align}
+r\lap e^{-\lambda} - e^{-\lambda} + 1 = 0\\
+1 = (re^{-\lambda})^\prime\\
+re^{-\lambda} = r + C
+\end{align}
+\beq
+e^{-\lambda} = e^{\nu} = 1 + \frac{const}{r}
+\eeq
+無限遠で、万有引力の法則が成り立っていることを要請すると、rが大きい場合に
+\beq
+g_{00} = 1 + \frac{2\phi}{c^2}
+\eeq
+となることを要請することと同じなので、
+\beq
+const =  - \frac{2km}{c^2}
+\eeq
+世界間隔は、
+\beq
+ds^2 = (1 - \frac{r_g}{r})c^2dt^2 - r^2(\sin^2 \theta d\phi^2 +d\theta^2) - \frac{dr^2}{1-\frac{r_g}{r}}
+\eeq
+$r_g = \frac{2km}{c^2}$はシュバルツシルト半径または重力半径という。
 \section{101}
 
 
