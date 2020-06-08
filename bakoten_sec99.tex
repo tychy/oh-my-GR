@@ -118,7 +118,7 @@ U = \half \int \mu \phi dV
 と書く。
 \subsection{ポテンシャルの多重極展開}
 不変な重力場では、質量が正であるから双極子モーメントを$0$にする座標系を取ることができる。
-したがって、すべての質量が位置$R_0$につくるポテンシャルは、$R_0$質点の位置よりも十分大きいとして、
+したがって、すべての質量が位置$R_0$につくるポテンシャルは、$R_0$が質点の位置よりも十分大きいとして、
 \beq
 \phi = -k \int dV \left(\frac{\mu}{R_0} + \half \mu x_\al x_\be \pikder[]{X_\al}{X_\be}(\frac{1}{R_0}) + \cdots \right)
 \eeq
@@ -152,7 +152,21 @@ D_{\al \be} = J_{\gamma \gamma}\delta_{\al \be} - 3 J_{\al \be}
 \beq
 \ddfrac{x}{a} + \ddfrac{y}{b} + \ddfrac{z}{x} = 1
 \eeq
-物体の重力エネルギーは、$U = \half \int \mu \phi dV$であったので計算すると、
+楕円体の内部のポテンシャルは、
+\beq
+\phi = -\mu abck \int_{\xi}^{\infty} \left(1 - \frac{x^2}{a^2+ s} - \frac{y^2}{b^2+ s}- \frac{z^2}{c^2+ s}\right)\frac{ds}{\Delta}
+\eeq
+内部のポテンシャルは、
+\beq
+\phi = -\mu abck \int_{0}^{\infty} \left(1 - \frac{x^2}{a^2+ s} - \frac{y^2}{b^2+ s}- \frac{z^2}{c^2+ s}\right)\frac{ds}{\Delta}
+\eeq
+
+物体の重力エネルギーは、楕円体の全領域積分$U = \half \int \mu \phi dV$であったので計算すると、
+\begin{align}
+    U &= \half \int \mu \phi dV\\
+      &= - \half \mu^2 abck \int dV \int_{0}^{\infty} \left(1 - \frac{x^2}{a^2+ s} - \frac{y^2}{b^2+ s}- \frac{z^2}{c^2+ s}\right)\frac{ds}{\Delta}\\
+      &= 
+\end{align}
 %todo 3
 \subsection{問題}
 全体として等加速度で回転している、重力を及ぼすことのできる一様な液体の塊の釣り合いの形を求めよ\\
