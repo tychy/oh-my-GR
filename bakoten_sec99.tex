@@ -39,7 +39,7 @@
 
 \date{\today}
 \author{山田龍}
-\title{99-101}
+\title{99-100}
 \begin{document}
 \maketitle
 \section{99ニュートンの法則}
@@ -272,10 +272,10 @@ $a(r, t)$は静的な重力場であることを要請して、$t \rightarrow -t
 同じ手順を繰り返せば、
 % todo 埋める
 \begin{align}
-    R_{11} &= 
-    R_{22} &= 
-    R_{33} &= 
-    R_{01} &=
+    R_{11} &= \hladd \enula + \hlad \enula (\dot{\lambda} - \dot{\nu}) - \hnupp + \frac{2}{r^2} + \hlad \enula \hnud + \hlap \hnup + \frac{\lap}{r} - (\hnup)^2 - \hlad \enula \hlad - \frac{2}{r^2}\\ 
+    R_{22} &= -e^{-\lambda} + re^{-\lambda}\lap + \frac{1}{\sin^2\theta} - re^{-\lambda}\hnup - re^{-\lambda}\hlap - \cot^2 \theta\\
+    R_{33} &= \sin^2\theta R_{22}\\
+    R_{01} &= \frac{\dot{\lambda}}{r}
 \end{align}
 スカラー曲率は、
 \begin{align}
@@ -350,7 +350,7 @@ d\tau = \sqrt{g_{00}} dt \leq dt
 等号成立は$r \rightarrow \infty$、これは無限遠の観測者から見ると重力場の中の時計が遅れることを意味する。
 十分離れたところでは、
 \begin{align}
-    ds^2 &= (1 - \frac{r_g}{r})c^2dt^2 - r^2(\sin^2 \theta d\phi^2 +d\theta^2) - \frac{dr^2}{1-\frac{r_g}{r}}\\
+    ds^2 &= (1 - \frac{r_g}{r})c^2dt^2 - r^2(\sin^2 \theta d\phi^2 +d\theta^2) - \frac{dr^2}{1-\frac{r_g}{r}}\label{eq:ds}\\
 &= c^2 dt^2 - dr^2 - r^2 d\Omega^2 - \frac{r_g}{r} (c^2 dt^2 + dr^2)\\
 &= ds_0^2 - \frac{r_g}{r} (c^2 dt^2 + dr^2)
 \end{align}
@@ -378,22 +378,36 @@ $\lambda$の式\eqref{eq:lambda}を見ると$1 - \epikcf \frac{1}{r} \int^r_0  T
 \beq
 e^\lambda \geq 1
 \eeq
-\eqref{eq:t00ag} - \eqref{eq:t11ag}は、
+\eqref{eq:t00ag} - \eqref{eq:t11ag}は、巨視的な物体のエネルギー運動量テンソルの表式$T^k_i = (p + \epsilon) u^k u_i - p \delta^{k}_i$と、
 \beq
 \frac{e^{-\lambda}}{r}(\nu^\prime + \lambda^\prime) = 
 \epikcf (T^0_0 - T^1_1) = \epikcf\frac{(\epsilon + p)(1 + \frac{v^2}{c^2})}{1-\frac{v^2}{c^2}} \geq 0
 \eeq
 %todo 詳しく
-よって、$\nu^\prime + \lambda^\prime \geq 0$で、
-\section{101}
-
-
-
-
-
-
-
-
+よって、$\nu^\prime + \lambda^\prime \geq 0$。無限遠で計量がガリレイ的になるから、全空間で$\nu + \lambda \leq 0$がわかる。
+$\lambda \geq 0$から$\nu \leq 0, e^\nu \leq 1$。これは、質量の内部でも時間が遅れることを示している。
+エネルギー運動量テンソルは真空中では$0$なので、$r>a$の点に対して、
+\beq
+\lambda = - ln\left(1 - \epikcf \frac{1}{r} \int^a_0  T^0_0 \right)
+\eeq
+一方で、\eqref{eq:ds}から
+\beq
+g_{11} = - e^\lambda = - \frac{1}{1 - \frac{r_g}{r}}
+\eeq
+\beq
+\lambda = - ln(1 - \frac{r_g}{r}) = - ln(1 - \frac{2km}{c^2 r})
+\eeq
+これを等しいとして、物体の質量がエネルギー運動量テンソルで表される。
+\beq
+m = \frac{4\pi}{c^2} \int_0^a T^0_0 r^2 dr
+\eeq
+物体中の物質分布が静的であれば、$T^0_0 = \epsilon$なので、
+\beq
+m = \frac{4\pi}{c^2} \int_0^a \epsilon r^2 dr \label{eq:m}
+\eeq
+空間の動径方向の距離は$\sqrt{g_{11}}r$である。
+空間の体積要素は、$dV = 4 \pi e^{\frac{\lambda}{2}} dr$であることと、$e^{\lambda} \geq 1$から
+\eqref{eq:m}は実際の質量よりも小さい値になる。これは重力的質量欠損である。
 
 
 \end{document}
