@@ -173,13 +173,32 @@ U &= \half \mu^2 a^2 b^2 c^2 k \pi \int \int \int r^2 \sin\theta dr d\theta d\ph
   &= \half \mu^2 a^2 b^2 c^2 k \pi \int \int \int \sin\theta dr d\theta d\phi \int_{0}^{\infty} \left(\frac{a^2 r^4 \sin^2\theta\cos^2\phi}{a^2+ s} + \frac{b^2 r^4 \sin^2\theta \sin^2 \phi}{b^2+ s}+ \frac{c^2 r^4 \cos^2\theta}{c^2+ s} - r^2 \right)\frac{ds}{\Delta}\\
   &= \half \mu^2 a^2 b^2 c^2 k \pi \int \int \sin\theta d\theta d\phi \int_{0}^{\infty} \left( \frac{1}{5}\left(\frac{a^2 \sin^2\theta\cos^2\phi}{a^2+ s} + \frac{b^2 \sin^2\theta \sin^2 \phi}{b^2+ s}+ \frac{c^2 \cos^2\theta}{c^2+ s}\right) - \frac{1}{3} \right)\frac{ds}{\Delta}\\
   &=  \frac{2}{3} \mu^2 a^2 b^2 c^2 k \pi^2 \int_{0}^{\infty} \left( \frac{1}{5} \left(\frac{a^2}{a^2+ s} + \frac{b^2}{b^2+ s}+ \frac{c^2}{c^2+ s} \right) - 1 \right)\frac{ds}{\Delta}\\
-  &= \frac{3km^2}{8} \int_0^\infty \left[ \right]
+  &= \frac{3km^2}{8} \int_0^\infty \left[\frac{1}{5}\left(\frac{a^2(b^2 + s)(c^2 + s)+(a^2 + s)b^2(c^2 + s)+ (a^2 + s)(b^2 + s)c^2}{\Delta^2} - 3 \right) - \frac{2}{5}\right]\frac{ds}{\Delta}\\
+  &= \frac{3km^2}{8} \int_0^\infty \left[\frac{1}{5}\left(-s\frac{(b^2 + s)(c^2 + s)+(a^2 + s)(c^2 + s)+ (a^2 + s)(b^2 + s)}{\Delta^2}\right) - \frac{2}{5}\right]\frac{ds}{\Delta}\\
+  &= \frac{3km^2}{8} \int_0^\infty \left[\frac{1}{5}\left(-s\frac{2\Delta\Delta^\prime}{\Delta^2}\right) - \frac{2}{5}\right]\frac{ds}{\Delta}\\
+  &= \frac{3km^2}{8} \int_0^\infty \left[\frac{2s}{5}\dder[]{s}( \frac{1}{\Delta}) - \frac{2}{5}\frac{1}{\Delta}\right]ds\\
+  &= \frac{3km^2}{8} \int_0^\infty \left[-\frac{2}{5}\frac{1}{\Delta} - \frac{2}{5}\frac{1}{\Delta}\right]ds\\
+  &= - \frac{3km^2}{10} \int_0^\infty \frac{1}{\Delta}ds
 \end{align}
-
+この楕円積分は、
+$a=b>c$の扁平な回転楕円体では、
+\beq
+U = - \frac{3km}{5\sqrt{a^2-c^2}} \cos^{-1}\frac{c}{a}
+\eeq
+$a>b=c$の縦長の回転楕円体では、
+\beq
+U = - \frac{3km^2}{5 \sqrt{a^2 - c^2}}cosh^{-1} \frac{a}{c}
+\eeq
+$a=b=c$の球体のときは、
+\begin{align}
+    U &= - \frac{3km^2}{10} \int_0^\infty \frac{1}{\Delta}ds\\
+      &= - \frac{3km^2}{10} \int_0^\infty (a^2 + s)^{-\frac{3}{2}}ds\\
+      &= - \frac{3km^2}{5a} 
+\end{align}
 %todo 3
-\subsection{問題}
-全体として等加速度で回転している、重力を及ぼすことのできる一様な液体の塊の釣り合いの形を求めよ\\
-解答:\\
+%\subsection{問題}
+%全体として等加速度で回転している、重力を及ぼすことのできる一様な液体の塊の釣り合いの形を求めよ\\
+%解答:\\
 %todo 4
 \section{100}
 球対称な系を考える。
