@@ -1,0 +1,112 @@
+\documentclass{jsarticle}
+\usepackage{amssymb,amsmath}
+\usepackage{amsthm}
+\usepackage{newtxtt}
+\usepackage[utf8]{inputenc}
+\newcommand{\pder}[2][]{\frac{\partial#1}{\partial#2}}
+\newcommand{\dder}[2][]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\beql}[1]{\begin{equation}\label{#1}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\eeqp}{\;\;\;.\end{equation}}
+\newcommand{\eeqc}{\;\;\;,\end{equation}}
+\newcommand{\xid}{x_i^2}
+\newcommand{\lid}{l_i^2}
+\newcommand{\aid}{a_i^2}
+\newcommand{\sumit}{\sum_{i=1}^3}
+\newcommand{\cosdt}{\cos^2\theta}
+\newcommand{\sindt}{\sin^2\theta}
+\newcommand{\tandt}{\tan^2\theta}
+\newcommand{\cosdp}{\cos^2\phi}
+\newcommand{\sindp}{\sin^2\phi}
+
+\newtheorem{thm}{定理}
+\date{\today}
+\author{山田龍}
+\title{一様な楕円体のつくる内部のポテンシャル}
+\begin{document}
+\maketitle
+\section{}
+楕円体の表面が、
+\beq
+\sum_{i=1}^3 \frac{\xid}{\aid} = 1
+\eeq
+で表される楕円体を考える。楕円体内部の点$x_i$をとってこの点から立体角$d\omega$を見込む領域を楕円体から切り取って、切り取られた高さ$R_1, R_2$の２つの三角錐のつくるポテンシャル$dphi$は、万有引力定数k、密度を$\rho$として
+\begin{align}
+d\phi &= k \rho \int_{0}^{R_1} r dr d\omega +
+k \rho \int_{0}^{R_2} r dr d\omega\\
+      &=  \half k \rho (R_1^2 + R_2^2) d\omega
+\end{align}
+これを立体角で積分すれば、求めたいポテンシャルの式は、
+\beq
+\phi = \frac{1}{4} k \rho \int_S (R_1^2 + R_2^2) d\omega\label{eq:phyousiki}
+\eeq
+この積分を実行するためには、準備が必要である。
+$l_i = (\sin\theta \cos\phi, \sin\theta \sin\phi ,\cos\theta)$という表記を導入すれば、
+$R = R_1, R_2$に対して
+\beq
+\sum_{i=1}^3 \left (\frac{x_i + R l_i}{a_i} \right) = 1\label{eq:daenl}
+\eeq
+のようにかける。逆にこの方程式の解が$R_1,R_2$である。
+楕円体の表面の方程式を書き直して、
+\beq
+\sum_{i=1}^3 \frac{r^2 \lid}{\aid} = 1
+\eeq
+\beq
+\sum_{i=1}^3 \frac{\lid}{\aid} = r^2
+\eeq
+すると$R$についての方程式は、
+\beq
+\frac{R^2}{r^2} + 2R\sumit \frac{x_i l_i}{a_i} + \sumit \frac{\xid}{\aid} - 1
+\eeq
+解と係数の関係を考えて、
+\beq
+R_1^2 + R_2^2 = 4r^4 \left(\sumit \frac{x_i l_i}{a_i} \right) + 2r^2 \left(1 -  \sumit \frac{\xid}{\aid}
+\right)
+\eeq
+\eqref{eq:phyousiki}に代入できて、
+\beq
+\phi = \frac{1}{2} k \rho \int_S \left[2r^4 \left(\sumit \frac{x_i l_i}{a_i} \right) + r^2 \left(1 -  \sumit \frac{\xid}{\aid}\right)\right]
+\label{eq:steptwo}
+\eeq
+ここからいくつかの補助定理を証明する。
+定理：
+\beq
+\int _S r^2 d\omega = 2 \pi a_1 a_2 a_3 \int_0^{\infty} \frac{du}{\Delta}
+\eeq
+$\Delta = \sqrt{(a_1^2 + u)(a_2^2 + u)(a_3^2 + u)}$\\
+Proof:
+極座標表示では、楕円体の表面の式は
+\beq
+\frac{1}{r^2} = \frac{\cosdt}{a_3^2} + \sindt(\frac{\cosdp}{a_1^2} + \frac{\sindp}{a_2^2})
+\eeq
+定理の左辺に代入して、
+\begin{align}
+    \int_S r^2 d\omega &= \int_0^\pi \int_0^{2\pi}
+    \frac{\sin\theta d\theta d\phi}{\frac{\cosdt}{a_3^2} + \sindt(\frac{\cosdp}{a_1^2} + \frac{\sindp}{a_2^2})
+}\\
+&= 8 \int_0^{\frac{\pi}{2}} \int_0^{\frac{\pi}{2}}
+    \frac{\sin\theta d\theta d\phi}{\frac{\cosdt}{a_3^2} + \sindt(\frac{\cosdp}{a_1^2} + \frac{\sindp}{a_2^2})
+}\\
+&= 8 \int_0^{\frac{\pi}{2}} \int_0^{\infty}
+\frac{\sin\theta d\theta dt}{\frac{\cosdt}{a_3^2} +\frac{\sindt}{a_1^2} + t^2(\frac{\cosdt}{a_3^2} + \frac{\sindt}{a_2^2})
+}\\
+&= 4\pi \int_0^{\frac{\pi}{2}} \frac{\sin\theta d\theta}{\sqrt{\frac{\cosdt}{a_3^2} +\frac{\sindt}{a_1^2}} \sqrt{\frac{\cosdt}{a_3^2} + \frac{\sindt}{a_2^2}
+}}\\
+&= 4\pi a_1 a_2 a_3^2
+\int_0^{\frac{\pi}{2}} \frac{\sec^2\theta \sin\theta d\theta}
+{\sqrt{a_3^2 +a_1^2\tandt} \sqrt{a_3^2 + a_2^2 \tandt}}
+\end{align}
+途中で、
+\beq
+\int_0^{\infty} \frac{dt}{1+t^2} = \int_0^{\frac{\pi}{2}} d\theta= \frac{\pi}{2}
+\eeq
+を使った。
+ここで、$u = a_3^2 \tandt, du = 2a_3^2 \sin\theta \sec^3\theta d\theta$の置き換えを考えて、
+\begin{align}
+    \int_S r^2 d\omega &= 2\pi a_1 a_2 \int_0^\infty \frac{\cos\theta du}\sqrt{a_1^2 + u}\sqrt{a_2^2 + u}\\
+                       &= 2 \pi a_1 a_2 a_3 \int_0^\infty \frac{du}{\Delta}
+\end{align}
+\end{document}
+
