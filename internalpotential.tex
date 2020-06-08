@@ -34,13 +34,13 @@
 \eeq
 で表される楕円体を考える。楕円体内部の点$x_i$をとってこの点から立体角$d\omega$を見込む領域を楕円体から切り取って、切り取られた高さ$R_1, R_2$の２つの三角錐のつくるポテンシャル$dphi$は、万有引力定数k、密度を$\rho$として
 \begin{align}
-d\phi &= k \rho \int_{0}^{R_1} r dr d\omega +
+d\phi &= -k \rho \int_{0}^{R_1} r dr d\omega +
 k \rho \int_{0}^{R_2} r dr d\omega\\
-      &=  \half k \rho (R_1^2 + R_2^2) d\omega
+      &=  -\half k \rho (R_1^2 + R_2^2) d\omega
 \end{align}
 これを立体角で積分すれば、求めたいポテンシャルの式は、
 \beq
-\phi = \frac{1}{4} k \rho \int_S (R_1^2 + R_2^2) d\omega\label{eq:phyousiki}
+\phi = -\frac{1}{4} k \rho \int_S (R_1^2 + R_2^2) d\omega\label{eq:phyousiki}
 \eeq
 この積分を実行するためには、準備が必要である。
 $l_i = (\sin\theta \cos\phi, \sin\theta \sin\phi ,\cos\theta)$という表記を導入すれば、
@@ -67,7 +67,7 @@ R_1^2 + R_2^2 = 4r^4 \left(\sumit \frac{x_i l_i}{a_i} \right) + 2r^2 \left(1 -  
 \eeq
 \eqref{eq:phyousiki}に代入できて、
 \beq
-\phi = \frac{1}{2} k \rho \int_S \left[2r^4 \left(\sumit \frac{x_i l_i}{a_i} \right) + r^2 \left(1 -  \sumit \frac{\xid}{\aid}\right)\right]
+\phi = -\frac{1}{2} k \rho \int_S \left[2r^4 \left(\sumit \frac{x_i l_i}{a_i} \right) + r^2 \left(1 -  \sumit \frac{\xid}{\aid}\right)\right]
 \label{eq:steptwo}
 \eeq
 ここからいくつかの補助定理を証明する。
@@ -105,8 +105,62 @@ Proof:
 を使った。
 ここで、$u = a_3^2 \tandt, du = 2a_3^2 \sin\theta \sec^3\theta d\theta$の置き換えを考えて、
 \begin{align}
-    \int_S r^2 d\omega &= 2\pi a_1 a_2 \int_0^\infty \frac{\cos\theta du}\sqrt{a_1^2 + u}\sqrt{a_2^2 + u}\\
-                       &= 2 \pi a_1 a_2 a_3 \int_0^\infty \frac{du}{\Delta}
+    \int_S r^2 d\omega &= 2\pi a_1 a_2 \int_0^\infty \frac{\cos\theta du}{\sqrt{a_1^2 + u}\sqrt{a_2^2 + u}}\\
+                       &= 2 \pi a_1 a_2 a_3 \int_0^\infty \frac{du}{\Delta}\\
+                       &= 2\pi I
 \end{align}
+次に、
+\beq
+A_i = a_1 a_2 a_3 \int_0^{\infty} \frac{du}{\Delta (a_i^2 + u)}
+\eeq
+という記号を定義する。
+定理：
+\beq
+\int_S r^2 l_i^2 = 2\pi a_i^2 A_i
+\eeq
+Proof:
+$i=3$の場合を考える。
+\begin{align}
+    \int_S r^2 l_3^2 &= \int_S r^2 \cosdt\\
+                     &= 2 \pi a_1 a_2 a_3 \int_0^\infty \frac{\cosdt}{\Delta}du\\
+                     &= 2\pi a_3^2 A_3\\
+\end{align}
+対称性から他の場合も示される。適切な置き換えによって同じ証明になる。\\
+$I,A$の定義から、
+\beq
+A_i = \frac{I}{a_i} - \frac{1}{a_i}\pder[I]{a_i}
+\eeq
+は右辺を実行すれば直ちに得られる。\\
+定理：
+\beq
+\int_S r^4 l_i^2 = \pi a_i^3 \pder[I]{a_i}
+\eeq
+Proof:
+\beq
+    \int_s r^2 d\omega = 2\pi I\\
+\eeq
+両辺微分して、
+\beq
+\int_S r\pder[r]{a_i} d\omega = \pi \pder[I]{a_i}\label{eq:28}\\
+\eeq
+一方、
+\beq
+\frac{1}{r^2} = \sumit \frac{\lid}{\aid}
+\eeq
+微分して
+\beq
+\frac{1}{r^3}\pder[r]{a_i} = \sumit \frac{\lid}{a_i^3}
+\eeq
+この式を、\eqref{eq:28}へ代入すると、定理の式を得る。
+ここまでで、\eqref{eq:steptwo}を計算する準備は整った。
+\begin{align}
+    \phi &= -\frac{1}{2} k \rho \int_S \left[2r^4 \left(\sumit \frac{x_i l_i}{a_i} \right) + r^2 \left(1 -  \sumit \frac{\xid}{\aid}\right)\right]\\
+         &= -k \rho \pi \left[\sumit \xid \left( \frac{1}{a_i}\pder[I]{a_i} - \frac{I}{\aid} \right) + I \right]\\
+         &= -k \rho \pi \left(
+             I - \sumit A_i \xid
+         \right)\\
+         &= -k \rho \pi a_1 a_2 a_3 \int_0^\infty \left(1 - \sumit \frac{\xid}{\aid + u}\right) \frac{du}{\Delta}
+\end{align}
+
 \end{document}
 
