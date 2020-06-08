@@ -152,21 +152,30 @@ D_{\al \be} = J_{\gamma \gamma}\delta_{\al \be} - 3 J_{\al \be}
 \beq
 \ddfrac{x}{a} + \ddfrac{y}{b} + \ddfrac{z}{x} = 1
 \eeq
-楕円体の内部のポテンシャルは、
+楕円体の外部のポテンシャルは、
 \beq
-\phi = -\mu abck \int_{\xi}^{\infty} \left(1 - \frac{x^2}{a^2+ s} - \frac{y^2}{b^2+ s}- \frac{z^2}{c^2+ s}\right)\frac{ds}{\Delta}
+\phi = -\mu abck \pi \int_{\xi}^{\infty} \left(1 - \frac{x^2}{a^2+ s} - \frac{y^2}{b^2+ s}- \frac{z^2}{c^2+ s}\right)\frac{ds}{\Delta}
 \eeq
 内部のポテンシャルは、
 \beq
-\phi = -\mu abck \int_{0}^{\infty} \left(1 - \frac{x^2}{a^2+ s} - \frac{y^2}{b^2+ s}- \frac{z^2}{c^2+ s}\right)\frac{ds}{\Delta}
+\phi = -\mu abck \pi \int_{0}^{\infty} \left(1 - \frac{x^2}{a^2+ s} - \frac{y^2}{b^2+ s}- \frac{z^2}{c^2+ s}\right)\frac{ds}{\Delta}
 \eeq
 
 物体の重力エネルギーは、楕円体の全領域積分$U = \half \int \mu \phi dV$であったので計算すると、
 \begin{align}
     U &= \half \int \mu \phi dV\\
-      &= - \half \mu^2 abck \int dV \int_{0}^{\infty} \left(1 - \frac{x^2}{a^2+ s} - \frac{y^2}{b^2+ s}- \frac{z^2}{c^2+ s}\right)\frac{ds}{\Delta}\\
-      &= 
+      &= - \half \mu^2 abck \pi \int dV \int_{0}^{\infty} \left(1 - \frac{x^2}{a^2+ s} - \frac{y^2}{b^2+ s}- \frac{z^2}{c^2+ s}\right)\frac{ds}{\Delta}\\
+      &= \half \mu^2 abck \pi \int dV \int_{0}^{\infty} \left(\frac{x^2}{a^2+ s} + \frac{y^2}{b^2+ s}+ \frac{z^2}{c^2+ s} - 1 \right)\frac{ds}{\Delta}\\
 \end{align}
+$x = a x^\prime, y = b y^\prime , z = c z^\prime$と変数変換して$x_i^\prime$を$x_i$に書き換える。球体の体積積分に書き換えられて、
+\begin{align}
+U &= \half \mu^2 a^2 b^2 c^2 k \pi \int \int \int r^2 \sin\theta dr d\theta d\phi \int_{0}^{\infty} \left(\frac{a^2 x^2}{a^2+ s} + \frac{b^2 y^2}{b^2+ s}+ \frac{c^2 z^2}{c^2+ s} - 1 \right)\frac{ds}{\Delta}\\
+  &= \half \mu^2 a^2 b^2 c^2 k \pi \int \int \int \sin\theta dr d\theta d\phi \int_{0}^{\infty} \left(\frac{a^2 r^4 \sin^2\theta\cos^2\phi}{a^2+ s} + \frac{b^2 r^4 \sin^2\theta \sin^2 \phi}{b^2+ s}+ \frac{c^2 r^4 \cos^2\theta}{c^2+ s} - r^2 \right)\frac{ds}{\Delta}\\
+  &= \half \mu^2 a^2 b^2 c^2 k \pi \int \int \sin\theta d\theta d\phi \int_{0}^{\infty} \left( \frac{1}{5}\left(\frac{a^2 \sin^2\theta\cos^2\phi}{a^2+ s} + \frac{b^2 \sin^2\theta \sin^2 \phi}{b^2+ s}+ \frac{c^2 \cos^2\theta}{c^2+ s}\right) - \frac{1}{3} \right)\frac{ds}{\Delta}\\
+  &=  \frac{2}{3} \mu^2 a^2 b^2 c^2 k \pi^2 \int_{0}^{\infty} \left( \frac{1}{5} \left(\frac{a^2}{a^2+ s} + \frac{b^2}{b^2+ s}+ \frac{c^2}{c^2+ s} \right) - 1 \right)\frac{ds}{\Delta}\\
+  &= \frac{3km^2}{8} \int_0^\infty \left[ \right]
+\end{align}
+
 %todo 3
 \subsection{問題}
 全体として等加速度で回転している、重力を及ぼすことのできる一様な液体の塊の釣り合いの形を求めよ\\
