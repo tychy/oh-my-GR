@@ -435,7 +435,9 @@ g^{ik} \pder[S]{x^i}\pder[S]{x^k} - mc^2 = 0
 \eeq
 （$m$は運動する物体の質量、 $m^\prime$は中心物体の質量、$r_g = \frac{2 k m^\prime}{c^2}$）\\
 ここでハミルトンヤコビ方程式に、$t,\phi$が陽に現れないから、２つは循環変数である。\\
+\subsection{Hamilton-Jacobi方程式についての一般論}
 (以下冗長かもしれないのでは必要に応じて)\\
+ここではとくに、変数分離される変数が循環変数である場合を考えることに注意する。
 変数分離してハミルトンヤコビを循環変数のみの式とそれ以外に分解する。
 例えば、$t$について分離して書くと、
 \beq
@@ -447,24 +449,45 @@ S(q, t) = W(q) + Y(t)
 \eeq
 に代入して
 \begin{align}
-    H(q, \pder[W]{q}) &= - \pder[Y]{t} = const =\alpha\\
+    H(q, \pder[W]{q}) &= - \pder[Y]{t} = const =\alpha_1\\
     \left\{
 \begin{array}{l}
-    \pder[Y]{t} = -\alpha\\
-    H(q, \pder[W]{q}) = \alpha \label{eq:tokusei}
+    \pder[Y]{t} = -\alpha_1\\
+    H(q, \pder[W]{q}) = \alpha_1\label{eq:tokusei}
 \end{array}
 \right.
 \end{align}
 を得る。任意定数は循環座標に対する保存量になる。\eqref{eq:tokusei}はHamiltonの特性関数$W(q,\alpha)$に対するハミルトンヤコビ方程式になっている。
-つまり、\eqref{eq:tokusei}を解けば、$W(q,\alpha)$が得られる。(ここまで)\\
+つまり、\eqref{eq:tokusei}を解けば、$W(q,\alpha)$が得られる。ここで$al = {\al_1, ... ,\al_N}$と書き直したのは、変数$q$の数の分だけ積分定数が出てくることからである。
+主関数$S$は、
+\beq
+S(q, \alpha, t) = W(q, \al) - \al_1 t
+\eeq
+とかける。主関数を母関数として正準変換した変数$\al, \be$についてのHamiltonの運動方程式を解けば、
+ハミルトンヤコビ方程式の解から主関数を構成したので、$\al = const, \be = const$である。また、母関数$S$についての正準変換の関係式から、
+\beq
+ \be_i = \pder[S]{\al_i}
+\eeq
+(ここまで)
+\subsection{}
 ハミルトンヤコビ方程式\eqref{eq:hamiltonj}を解く。循環座標に注意して、解を
 \beq
     S = - Et + M \phi + S_r(r)
 \eeq
 の形に置く。これを\eqref{eq:hamiltonj}に代入して、
 \beq
+    (1 - \frac{r_g}{r})(\pder[S]{r})^2 = (1 - \frac{r_g}{r})^{-1} \frac{E^2}{c^2} - (\frac{M^2}{r^2} + m^2c^2)
 \eeq
-
+よって、
+\beq
+S_r = \int \left[(1 - \frac{r_g}{r})^{-2} \frac{E^2}{c^2} - (1 - \frac{r_g}{r})(\frac{M^2}{r^2} + m^2c^2)
+ \right]^{\half}dr
+\eeq
+ハミルトンヤコビ方程式の解の任意定数$\al_i$のそれぞれについて、(今のように不完全解においても)、
+\beq
+    \pder[S]{\al_i} = const
+\eeq
+は、$q_1, ... q_N$と$t$についての方程式を一つ与える。特に、$\al_i$が循環変数に対応した保存量であるならば、任意定数の付いていない項と$\al_i$を保存量とする循環変数との方程式が与えられる。\\
 
 
 
