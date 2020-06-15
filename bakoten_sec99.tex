@@ -36,6 +36,7 @@
 \newcommand{\nup}{\nu^\prime}
 \newcommand{\lap}{\lambda^\prime}
 \newcommand{\revrt}{\frac{1}{r^2}}
+\newcommand{\rgr}{1 - \frac{r_g}{r}}
 
 \date{\today}
 \author{山田龍}
@@ -270,7 +271,6 @@ $a(r, t)$は静的な重力場であることを要請して、$t \rightarrow -t
                                 R_{00} &= \hnupp \enula  + \hnup \enula (\nu^\prime - \lambda^\prime) - \hladd + \hnud \hlad + \hnup \enula \hlap + \hnup \enula \frac{2}{r} - (\hnup)^2 \enula - (\hlad)^2
 \end{align}
 同じ手順を繰り返せば、
-% todo 埋める
 \begin{align}
     R_{11} &= \hladd \enula + \hlad \enula (\dot{\lambda} - \dot{\nu}) - \hnupp + \frac{2}{r^2} + \hlad \enula \hnud + \hlap \hnup + \frac{\lap}{r} - (\hnup)^2 - \hlad \enula \hlad - \frac{2}{r^2}\\ 
     R_{22} &= -e^{-\lambda} + re^{-\lambda}\lap + \frac{1}{\sin^2\theta} - re^{-\lambda}\hnup - re^{-\lambda}\hlap - \cot^2 \theta\\
@@ -480,7 +480,7 @@ S(q, \alpha, t) = W(q, \al) - \al_1 t
 \eeq
 よって、
 \beq
-S_r = \int \left[(1 - \frac{r_g}{r})^{-2} \frac{E^2}{c^2} - (1 - \frac{r_g}{r})(\frac{M^2}{r^2} + m^2c^2)
+S_r = \int \left[(1 - \frac{r_g}{r})^{-2} \frac{E^2}{c^2} - (\rgr)^{-1}(\frac{M^2}{r^2} + m^2c^2)
  \right]^{\half}dr
 \eeq
 ハミルトンヤコビ方程式の解の任意定数$\al_i$のそれぞれについて、(今のように不完全解においても)、
@@ -488,6 +488,25 @@ S_r = \int \left[(1 - \frac{r_g}{r})^{-2} \frac{E^2}{c^2} - (1 - \frac{r_g}{r})(
     \pder[S]{\al_i} = const
 \eeq
 は、$q_1, ... q_N$と$t$についての方程式を一つ与える。特に、$\al_i$が循環変数に対応した保存量であるならば、任意定数の付いていない項と$\al_i$を保存量とする循環変数との方程式が与えられる。具体的には、$\pder[S]{E} = const$では$r, t$、$\pder[S]{\phi} = const$では$r, \phi$についての方程式を得る。
+\begin{align}
+    const = -t + \pder[S]{E}\\
+    t = -const + \int \frac{\frac{2E}{c^2} (\rgr)^{-2}}{2\left[(\rgr)^{-2} \frac{E^2}{c^2} - (\rgr)^{-1}(\frac{M^2}{r^2} + m^2c^2) \right]^{\half}} dr\\
+    t = \int \frac{\frac{E}{c^2} }{(\rgr)\left[ \frac{E^2}{c^2} - (\rgr)(\frac{M^2}{r^2} + m^2c^2) \right]^{\half}} dr\\
+    ct = \int \frac{\frac{E}{mc^2} }{(\rgr)\left[ \frac{E^2}{m^2c^4} - (\rgr)(1 + \frac{M^2}{m^2c^2r^2}) \right]^{\half}} dr
+\end{align}
+軌道は、
+\begin{align}
+    \phi + \pder[S_r]{M} = const\label{eq:kidou}\\
+    \phi &= \int \frac{\frac{M}{r^2} (\rgr)^{-1}}{\left[(\rgr)^{-2} \frac{E^2}{c^2} - (\rgr)^{-1}(\frac{M^2}{r^2} + m^2c^2) \right]^{\half}} d\phi\\
+&= \int \frac{\frac{M}{r^2}}{\left[\frac{E^2}{c^2} - (\rgr)(\frac{M^2}{r^2} + m^2c^2) \right]^{\half}} d\phi\\
+\end{align}
+太陽の引力の場の中の遊星の運動について考える。遊星の速度が高速に比べて小さいことは、$\frac{r_g}{r}$が小さいことを意味する。遊星の軌道に対する相対論補正を調べる。
+動径方向
+
+角度$\phi$
+
+\subsection{光線の径路}
+アイコナール方程式が光線の径路を決める。
 
 
 
