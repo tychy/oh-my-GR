@@ -410,6 +410,74 @@ m = \frac{4\pi}{c^2} \int_0^a \epsilon r^2 dr \label{eq:m}
 \eqref{eq:m}は実際の質量よりも小さい値になる。これは重力的質量欠損である。
 %余裕があれば問題を解く
 \section{101　中心対称な重力場の中での運動}
+中心対称な重力場中の物体の運動を考える。
+中心対称の場では運動は一つの平面上で起こる。その面を$\theta = \frac{\pi}{2}$にとる。\\
+補足：
+測地線方程式の$\theta$の式を考えて、
+\begin{align}
+    \frac{d\theta^2}{ds^2} + 2\GaT{2}{1}{2} u^1 u^2 + \GaT{2}{3}{3} u^3 u^3 &= 0\\
+    \frac{d\theta^2}{ds^2} + \frac{2}{r} \frac{d\theta}{ds} \frac{dr}{ds} - \sin\theta \cos\theta (\frac{d\phi}{ds})^2 &= 0\\
+    \dder[]{s} (r^2 \dder[\theta]{s}) = 0
+\end{align}    
+この式に対して、初期条件$\theta = \frac{\pi}{2}, \dder[\theta]{s} = 0$を考えることは中心対称    であることを壊さない。この初期条件で、 
+\begin{align}  
+     \dder[]{s} (r^2 \dder[\theta]{s}) = 0 
+\end{align}    
+を得る。$\theta$が一定な平面上で物体が運動することがわかる。 
+光の場合も固有時ではないアフィンパラメーターを使って同じ議論ができる。\\
+物体の軌道を決めるためにハミルトンヤコビ方程式を考える。
+\beq
+g^{ik} \pder[S]{x^i}\pder[S]{x^k} - mc^2 = 0
+\eeq
+計量は知っているので具体的に書き直して、
+\beq\label{eq:hamiltonj}
+(1 - \frac{r_g}{r})^{-1} (\frac{\partial S}{c \partial t})^2 - (1 - \frac{r_g}{r})(\pder[S]{r})^2 - \revrt (\pder[S]{\phi})^2 - m^2c^2 = 0
+\eeq
+（$m$は運動する物体の質量、 $m^\prime$は中心物体の質量、$r_g = \frac{2 k m^\prime}{c^2}$）\\
+ここでハミルトンヤコビ方程式に、$t,\phi$が陽に現れないから、２つは循環変数である。\\
+(以下冗長かもしれないのでは必要に応じて)\\
+変数分離してハミルトンヤコビを循環変数のみの式とそれ以外に分解する。
+例えば、$t$について分離して書くと、
+\beq
+S(q, t) = W(q) + Y(t)
+\eeq
+と分離して、一般的なハミルトニアンが時間$t$に陽によらないハミルトンヤコビ方程式
+\beq
+    H(q,\pder[S]{q}) + \pder[S]{t} = 0
+\eeq
+に代入して
+\begin{align}
+    H(q, \pder[W]{q}) &= - \pder[Y]{t} = const =\alpha\\
+    \left\{
+\begin{array}{l}
+    \pder[Y]{t} = -\alpha\\
+    H(q, \pder[W]{q}) = \alpha \label{eq:tokusei}
+\end{array}
+\right.
+\end{align}
+を得る。任意定数は循環座標に対する保存量になる。\eqref{eq:tokusei}はHamiltonの特性関数$W(q,\alpha)$に対するハミルトンヤコビ方程式になっている。
+つまり、\eqref{eq:tokusei}を解けば、$W(q,\alpha)$が得られる。(ここまで)\\
+ハミルトンヤコビ方程式\eqref{eq:hamiltonj}を解く。循環座標に注意して、解を
+\beq
+    S = - Et + M \phi + S_r(r)
+\eeq
+の形に置く。これを\eqref{eq:hamiltonj}に代入して、
+\beq
+\eeq
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
 
