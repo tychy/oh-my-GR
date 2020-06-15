@@ -469,6 +469,8 @@ S(q, \alpha, t) = W(q, \al) - \al_1 t
  \be_i = \pder[S]{\al_i}
 \eeq
 (ここまで)
+%キリングベクトルを考えることと同じ？
+%測地線方程式を解くのと同じ？
 \subsection{}
 ハミルトンヤコビ方程式\eqref{eq:hamiltonj}を解く。循環座標に注意して、解を
 \beq
@@ -484,7 +486,7 @@ S_r = \int \left[(1 - \frac{r_g}{r})^{-2} \frac{E^2}{c^2} - (\rgr)^{-1}(\frac{M^
  \right]^{\half}dr
 \eeq
 ハミルトンヤコビ方程式の解の任意定数$\al_i$のそれぞれについて、(今のように不完全解においても)、
-\beq
+\beq\label{eq:sr}
     \pder[S]{\al_i} = const
 \eeq
 は、$q_1, ... q_N$と$t$についての方程式を一つ与える。特に、$\al_i$が循環変数に対応した保存量であるならば、任意定数の付いていない項と$\al_i$を保存量とする循環変数との方程式が与えられる。具体的には、$\pder[S]{E} = const$では$r, t$、$\pder[S]{\phi} = const$では$r, \phi$についての方程式を得る。
@@ -501,9 +503,57 @@ S_r = \int \left[(1 - \frac{r_g}{r})^{-2} \frac{E^2}{c^2} - (\rgr)^{-1}(\frac{M^
 &= \int \frac{\frac{M}{r^2}}{\left[\frac{E^2}{c^2} - (\rgr)(\frac{M^2}{r^2} + m^2c^2) \right]^{\half}} d\phi\\
 \end{align}
 太陽の引力の場の中の遊星の運動について考える。遊星の速度が高速に比べて小さいことは、$\frac{r_g}{r}$が小さいことを意味する。遊星の軌道に対する相対論補正を調べる。
-動径方向
+動径方向は\eqref{eq:sr}において、$r(r - r_g) = r^{\prime 2}$つまり$r\sqrt{\rgr} \sim r - \frac{r_g}{2} = r^\prime$と変数変換する。
+また、$E = mc^2 + E^\prime$と静止エネルギーを分離する。
+\beq
+\frac{r^2}{r^{\prime 2}} = \frac{(r^{\prime} + \frac{r_g}{2})^2}{r^{\prime 2}} = 1 + \frac{r_g}{r^\prime} + \frac{r_g^2}{2r^{\prime 2}}
+\eeq
+を準備して、
+\begin{align}
+    S_r &= \int \left[(1 - \frac{r_g}{r})^{-2} \frac{E^2}{c^2} - (\rgr)^{-1}(\frac{M^2}{r^2} + m^2c^2)
+ \right]^{\half}dr\\
+        &= \int \left[(1 - \frac{r_g}{r})^{-2} \frac{(mc^2 + E^\prime)^2}{c^2} - (\rgr)^{-1}(\frac{M^2}{r^2} + m^2c^2)
+ \right]^{\half}dr\\
+        &= \int \left[(\frac{r^2}{r^{\prime 2}})^2 \frac{(mc^2 + E^\prime)^2}{c^2} - \frac{r^2}{r^{\prime 2}}(\frac{M^2}{r^2} + m^2c^2)
+ \right]^{\half}dr\\
+        &= \int \left[(\frac{r^2}{r^{\prime 2}})^2 \frac{m^2c^4 + 2mc^2E^\prime + E^{\prime 2}}{c^2} - \frac{1}{r^{\prime 2}}M^2 + \frac{r^2}{r^{\prime 2}}m^2c^2
+ \right]^{\half}dr\\
+        &= \int \left[(1 + 2\frac{r_g}{r^\prime} + 2\frac{r_g^2}{r^{\prime 2}}) (m^2c^2 + 2mE^\prime + \frac{E^{\prime 2}}{c^2}) - \frac{1}{r^{\prime 2}}M^2 - (1 + \frac{r_g}{r^\prime} + \frac{r_g^2}{2r^{\prime 2}})
+m^2c^2
+ \right]^{\half}dr\\
+        &= \int \left[(1 + 2\frac{r_g}{r^\prime} + 2\frac{r_g^2}{r^{\prime 2}}) (m^2c^2 + 2mE^\prime + \frac{E^{\prime 2}}{c^2}) - \frac{1}{r^{\prime 2}}M^2 - (1 + \frac{r_g}{r^\prime} + \frac{r_g^2}{2r^{\prime 2}})
+m^2c^2
+ \right]^{\half}dr\\
+        &= \int \left[
+            (2E^\prime m + \frac{E^\prime}{c^2}) + \frac{1}{r}(2m^2m^\prime k + 4 E^\prime m r_g) - \revrt (M^2 - \frac{3m^2c^2r_g^2}{2})
+        \right]^{\half}dr\\
+\end{align}
+このうち第三項目の$\revrt$が近日点の系統的な永年移動をもたらす。\\
+%todo もっと深く
+軌道について考える。軌道は、\eqref{eq:kidou}によって決まる。
+\beq
+\phi + \pder[S_r]{M} = const
+\eeq
+惑星が軌道を一回りする時間の間の角度$\phi$の変化は、
+\beq
+\Delta \phi = - \pder[]{M} \Delta S_r
+\eeq
+$\Delta S_r$を展開して、
 
-角度$\phi$
+ここで、$\Delta S_0$は近日点移動のない閉じた楕円を描く運動に対応するので、
+\beq
+\Delta \phi = - \pder[]{M} \Delta S_0 = 2\pi
+\eeq
+よって
+\beq
+\Delta \phi = 2\pi + \frac{3\pi m^2c^2r_g^2}{2M^2} = 2\pi + \frac{6\pi k^2 m^2 m^{\prime 2}}{c^2M^2}
+\eeq
+第二項が近日点移動で、
+\beq
+\delta \phi = \frac{6\pi k^2 m^2 m^{\prime 2}}{c^2M^2}
+\eeq
+とかける。
+
 
 \subsection{光線の径路}
 アイコナール方程式が光線の径路を決める。
