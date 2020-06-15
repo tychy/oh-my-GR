@@ -515,19 +515,20 @@ S_r = \int \left[(1 - \frac{r_g}{r})^{-2} \frac{E^2}{c^2} - (\rgr)^{-1}(\frac{M^
         &= \int \left[(1 - \frac{r_g}{r})^{-2} \frac{(mc^2 + E^\prime)^2}{c^2} - (\rgr)^{-1}(\frac{M^2}{r^2} + m^2c^2)
  \right]^{\half}dr\\
         &= \int \left[(\frac{r^2}{r^{\prime 2}})^2 \frac{(mc^2 + E^\prime)^2}{c^2} - \frac{r^2}{r^{\prime 2}}(\frac{M^2}{r^2} + m^2c^2)
- \right]^{\half}dr\\
+ \right]^{\half}dr^\prime\\
         &= \int \left[(\frac{r^2}{r^{\prime 2}})^2 \frac{m^2c^4 + 2mc^2E^\prime + E^{\prime 2}}{c^2} - \frac{1}{r^{\prime 2}}M^2 + \frac{r^2}{r^{\prime 2}}m^2c^2
- \right]^{\half}dr\\
+ \right]^{\half}dr^\prime\\
         &= \int \left[(1 + 2\frac{r_g}{r^\prime} + 2\frac{r_g^2}{r^{\prime 2}}) (m^2c^2 + 2mE^\prime + \frac{E^{\prime 2}}{c^2}) - \frac{1}{r^{\prime 2}}M^2 - (1 + \frac{r_g}{r^\prime} + \frac{r_g^2}{2r^{\prime 2}})
 m^2c^2
- \right]^{\half}dr\\
+ \right]^{\half}dr^\prime\\
         &= \int \left[(1 + 2\frac{r_g}{r^\prime} + 2\frac{r_g^2}{r^{\prime 2}}) (m^2c^2 + 2mE^\prime + \frac{E^{\prime 2}}{c^2}) - \frac{1}{r^{\prime 2}}M^2 - (1 + \frac{r_g}{r^\prime} + \frac{r_g^2}{2r^{\prime 2}})
 m^2c^2
- \right]^{\half}dr\\
+ \right]^{\half}dr^\prime\\
         &= \int \left[
             (2E^\prime m + \frac{E^\prime}{c^2}) + \frac{1}{r}(2m^2m^\prime k + 4 E^\prime m r_g) - \revrt (M^2 - \frac{3m^2c^2r_g^2}{2})
         \right]^{\half}dr\\
 \end{align}
+最後の式で、$r^\prime$を$r$と書き換えた。
 このうち第三項目の$\revrt$が近日点の系統的な永年移動をもたらす。\\
 %todo もっと深く
 軌道について考える。軌道は、\eqref{eq:kidou}によって決まる。
@@ -538,8 +539,10 @@ m^2c^2
 \beq
 \Delta \phi = - \pder[]{M} \Delta S_r
 \eeq
-$\Delta S_r$を展開して、
-
+$\Delta S_r$を展開する。
+\beq
+\Delta S_r = \Delta S_0 - \frac{3m^2c^2r_g^2}{2}\frac{1}{2M}\pder[S_0]{M} = \Delta S_0 - \frac{3m^2c^2r_g^2}{4M}\pder[S_0]{M}
+\eeq
 ここで、$\Delta S_0$は近日点移動のない閉じた楕円を描く運動に対応するので、
 \beq
 \Delta \phi = - \pder[]{M} \Delta S_0 = 2\pi
@@ -552,23 +555,75 @@ $\Delta S_r$を展開して、
 \beq
 \delta \phi = \frac{6\pi k^2 m^2 m^{\prime 2}}{c^2M^2}
 \eeq
-とかける。
-
-
+とかける。公式
+\beq
+\frac{M}{km^\prime m^2} = a(1 - e^2)
+\eeq
+を使えば、
+\beq
+\delta \phi = \frac{6\pi km^{\prime}}{c^2 a(1 - e^2)}
+\eeq
+%todo 公式
 \subsection{光線の径路}
 アイコナール方程式が光線の径路を決める。
-
-
-
-
-
-
-
-
-
-
-
-
-
+\beq
+    g^{ik} \pder[\psi]{x^i}\pder[\psi]{x^k} = 0
+\eeq
+この式はハミルトンヤコビ方程式において$m=0$と置いたものであるから、光線の径路は任意定数を光の振動数$\omega_0 = - \pder[\psi]{t}$と取り直す。$M$も、$\rho = cM / \omega_0$と定数を導入しなおせば軌道は、
+\beq
+    \psi = \int \frac{dr}{r^2\sqrt{\frac{1}{\rho^2} - \revrt (\rgr)}}
+\eeq
+非相対論極限$r_g \rightarrow 0$で
+%積分する
+\begin{align}
+    \psi &= \int \frac{\rho dr}{r^2\sqrt{1 - \frac{\rho^2}{r^2}}}\\
+         &= - \int \frac{dt}{\sqrt{1 - t^2}}\\
+         &= \arccos(t)\\
+    \cos\phi = \frac{\rho}{r}\\
+    r \cos\phi = \rho
+\end{align}
+途中で$t = \frac{\rho}{r}$と置きかえた。
+これは、座標の原点から距離$\rho$の点を通る直線である。非相対論極限では直線が軌道であることがわかった。
+相対論的な補正を考える。
+アイコナールの動径部分は、アイコナール方程式をハミルトンヤコビ方程式と比べたこととの類推から
+\beq
+    \psi_r = \frac{\omega_0}{c} \int \sqrt{\frac{r^2}{(r-r_g)^2} - \frac{\rho^2}{r(r-r_g)}} dr
+\eeq
+\begin{align}
+    \psi_r &= \frac{\omega_0}{c} \int \sqrt{(\frac{r^2}{r^{\prime 2}})^2 - \frac{\rho^2}{r^{\prime 2}}} dr\\
+           &= \frac{\omega_0}{c} \int \sqrt{(1 + 2\frac{r_g}{r^\prime} + 2\frac{r_g^2}{r^{\prime 2}}) - \frac{\rho^2}{r^{\prime 2}}} dr\\
+           &= \frac{\omega_0}{c} \int \sqrt{1 + 2\frac{r_g}{r^\prime} - \frac{\rho^2}{r^{\prime 2}}} dr
+\end{align}
+$\frac{r_g}{r}$のべきで展開して
+\begin{align}
+    \psi_r &= \psi_r^0 + \pder[\psi_r]{\frac{r_g}{r}}|_{\frac{r_g}{r} = 0} \frac{r_g}{r}\\
+           &= \psi_r^0 + \frac{r_g \omega_0}{c} \int \frac{dr}{\sqrt{r^2 - \rho^2}}\\
+           &= \psi_r^0 + \frac{r_g \omega_0}{c} \int \frac{dr}{\rho\sqrt{\frac{r^2}{\rho^2} - 1}}\\
+           &= \psi_r^0 + \frac{r_g \omega_0}{c} \int \frac{dt}{\sqrt{t^2 - 1}}\\
+           &= \psi_r^0 + \frac{r_g \omega_0}{c} cosh^{-1}\frac{r}{\rho}
+\end{align}
+$\dder[]{x}arccoshx = \frac{1}{\sqrt{x^2 - 1}}$を使った。
+%todo 積分微妙
+光線が非常に大きな距離$R$から中心に近い点$r=\rho$まできて、再び距離$R$まで去る間の$\phi_r$の全変化は、
+距離$R$の点から$r=\rho$までやってきたときのアイコナールの変化の２倍で書けて
+\beq
+\Delta \psi_r = \Delta \psi_r^0 + 2 \frac{r_g \omega_0}{c}cosh^{-1}\frac{R}{\rho}
+\eeq
+光線に沿っての極角$\phi$の変化は、
+\begin{align}
+    \Delta \phi = - \pder[\Delta \psi_r]{M} &= - \pder[\Delta \psi_r]{M} - 
+    2 \frac{r_g \omega_0}{c} \frac{1}{\sqrt{\frac{R^2}{\rho^2} - 1}} \dder[\frac{R}{\rho}]{M}\\
+                                            &= - \pder[\Delta \psi_r]{M} - 2 r_g \frac{1}{\sqrt{\frac{R^2}{\rho^2} - 1}} R (-\frac{1}{\rho^2})\\
+                                                             &= - \pder[\Delta \psi_r]{M} - 2 r_g \frac{R}{\rho\sqrt{R^2 - \rho^2}}
+\end{align}
+$R \rightarrow \infty$の極限を考える。直線には$\Delta \phi = \pi$が対応するので、
+\beq
+    \Delta \phi = \pi + \frac{2r_g}{\rho}
+\eeq
+光線の２本の漸近線の間の角度は、$\pi$から
+\beq
+    \delta \phi = \frac{2r_g}{\rho} = \frac{4km^\prime}{c^2\rho}
+\eeq
+だけ異なる。中心から距離$\rho$のところを通る光線の屈曲である。
 \end{document}
 
