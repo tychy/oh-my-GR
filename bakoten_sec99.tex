@@ -302,7 +302,7 @@ R_{ik} - \half g_{ik} R = \frac{8 \pi k}{c^4}T_{ik}
 \beq
 \dot{\lambda} = 0 
 \eeq
-と書き換えられ、$\lambda = \lambda (r)$と時間に依らない形に書ける。\eqref{eq:t00}\eqref{eq:t11}から、
+と書き換えられ、$\lambda = \lambda (r)$と時間に依らない形に書ける。\eqref{eq:10009}\eqref{eq:t10010}から、
 \beq
 \lap + \nup = 0
 \eeq
@@ -363,9 +363,9 @@ $ds_0^2$はガリレイの計量を意味する。\\
 を見ると、\eqref{eq:t00ag}から$T^0_0$が$r=0$で特異点を持たないためには、$\lambda$が0に向かうことがわかる。
 \begin{align}
 \epikcf T^0_0 r^2 &= (r \lambda^\prime - 1)e^{-\lambda} + 1\\ 
-\epikcf \int^r_0  T^0_0 r^2 &= \int^r_0 (r \lambda^\prime - 1)e^{-\lambda} + 1\\ 
+\epikcf \int^r_0  T^0_0 r^2dr &= \int^r_0 (r \lambda^\prime - 1)e^{-\lambda} + 1 dr\\ 
                             &= [-re^{-\lambda}]^r_0 + r = -r e^{-\lambda} + r = r(1 - e^{-\lambda})\\ 
-\lambda &= - ln\left(1 - \epikcf \frac{1}{r} \int^r_0  T^0_0 \right)\label{eq:lambda}
+\lambda &= - ln\left(1 - \epikcf \frac{1}{r} \int^r_0  T^0_0 r^2 dr\right)\label{eq:lambda}
 \end{align}
 $T^0_0$の符号は一般的には決まった符号ではないが、ここでは
 \beq
@@ -388,7 +388,7 @@ e^\lambda \geq 1
 $\lambda \geq 0$から$\nu \leq 0, e^\nu \leq 1$。これは、質量の内部でも時間が遅れることを示している。
 エネルギー運動量テンソルは真空中では$0$なので、$r>a$の点に対して、
 \beq
-\lambda = - ln\left(1 - \epikcf \frac{1}{r} \int^a_0  T^0_0 \right)
+\lambda = - ln\left(1 - \epikcf \frac{1}{r} \int^a_0  T^0_0 r^2 dr\right)
 \eeq
 一方で、\eqref{eq:ds}から
 \beq
