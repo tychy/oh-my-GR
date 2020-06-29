@@ -36,6 +36,7 @@
 \newcommand{\nup}{\nu^\prime}
 \newcommand{\lap}{\lambda^\prime}
 \newcommand{\revrt}{\frac{1}{r^2}}
+\newcommand{\rgr}{1 - \frac{r_g}{r}}
 
 \date{\today}
 \author{山田龍}
@@ -270,7 +271,6 @@ $a(r, t)$は静的な重力場であることを要請して、$t \rightarrow -t
                                 R_{00} &= \hnupp \enula  + \hnup \enula (\nu^\prime - \lambda^\prime) - \hladd + \hnud \hlad + \hnup \enula \hlap + \hnup \enula \frac{2}{r} - (\hnup)^2 \enula - (\hlad)^2
 \end{align}
 同じ手順を繰り返せば、
-% todo 埋める
 \begin{align}
     R_{11} &= \hladd \enula + \hlad \enula (\dot{\lambda} - \dot{\nu}) - \hnupp + \frac{2}{r^2} + \hlad \enula \hnud + \hlap \hnup + \frac{\lap}{r} - (\hnup)^2 - \hlad \enula \hlad - \frac{2}{r^2}\\ 
     R_{22} &= -e^{-\lambda} + re^{-\lambda}\lap + \frac{1}{\sin^2\theta} - re^{-\lambda}\hnup - re^{-\lambda}\hlap - \cot^2 \theta\\
@@ -302,7 +302,7 @@ R_{ik} - \half g_{ik} R = \frac{8 \pi k}{c^4}T_{ik}
 \beq
 \dot{\lambda} = 0 
 \eeq
-と書き換えられ、$\lambda = \lambda (r)$と時間に依らない形に書ける。\eqref{eq:t00}\eqref{eq:t11}から、
+と書き換えられ、$\lambda = \lambda (r)$と時間に依らない形に書ける。\eqref{eq:10009}\eqref{eq:t10010}から、
 \beq
 \lap + \nup = 0
 \eeq
@@ -363,9 +363,9 @@ $ds_0^2$はガリレイの計量を意味する。\\
 を見ると、\eqref{eq:t00ag}から$T^0_0$が$r=0$で特異点を持たないためには、$\lambda$が0に向かうことがわかる。
 \begin{align}
 \epikcf T^0_0 r^2 &= (r \lambda^\prime - 1)e^{-\lambda} + 1\\ 
-\epikcf \int^r_0  T^0_0 r^2 &= \int^r_0 (r \lambda^\prime - 1)e^{-\lambda} + 1\\ 
+\epikcf \int^r_0  T^0_0 r^2dr &= \int^r_0 (r \lambda^\prime - 1)e^{-\lambda} + 1 dr\\ 
                             &= [-re^{-\lambda}]^r_0 + r = -r e^{-\lambda} + r = r(1 - e^{-\lambda})\\ 
-\lambda &= - ln\left(1 - \epikcf \frac{1}{r} \int^r_0  T^0_0 \right)\label{eq:lambda}
+\lambda &= - ln\left(1 - \epikcf \frac{1}{r} \int^r_0  T^0_0 r^2 dr\right)\label{eq:lambda}
 \end{align}
 $T^0_0$の符号は一般的には決まった符号ではないが、ここでは
 \beq
@@ -388,7 +388,7 @@ e^\lambda \geq 1
 $\lambda \geq 0$から$\nu \leq 0, e^\nu \leq 1$。これは、質量の内部でも時間が遅れることを示している。
 エネルギー運動量テンソルは真空中では$0$なので、$r>a$の点に対して、
 \beq
-\lambda = - ln\left(1 - \epikcf \frac{1}{r} \int^a_0  T^0_0 \right)
+\lambda = - ln\left(1 - \epikcf \frac{1}{r} \int^a_0  T^0_0 r^2 dr\right)
 \eeq
 一方で、\eqref{eq:ds}から
 \beq
@@ -408,7 +408,222 @@ m = \frac{4\pi}{c^2} \int_0^a \epsilon r^2 dr \label{eq:m}
 空間の動径方向の距離は$\sqrt{g_{11}}r$である。
 空間の体積要素は、$dV = 4 \pi e^{\frac{\lambda}{2}} dr$であることと、$e^{\lambda} \geq 1$から
 \eqref{eq:m}は実際の質量よりも小さい値になる。これは重力的質量欠損である。
-
-
+%余裕があれば問題を解く
+\section{101　中心対称な重力場の中での運動}
+中心対称な重力場中の物体の運動を考える。
+中心対称の場では運動は一つの平面上で起こる。その面を$\theta = \frac{\pi}{2}$にとる。\\
+補足：
+測地線方程式の$\theta$の式を考えて、
+\begin{align}
+    \frac{d\theta^2}{ds^2} + 2\GaT{2}{1}{2} u^1 u^2 + \GaT{2}{3}{3} u^3 u^3 &= 0\\
+    \frac{d\theta^2}{ds^2} + \frac{2}{r} \frac{d\theta}{ds} \frac{dr}{ds} - \sin\theta \cos\theta (\frac{d\phi}{ds})^2 &= 0\\
+    \dder[]{s} (r^2 \dder[\theta]{s}) = 0
+\end{align}    
+この式に対して、初期条件$\theta = \frac{\pi}{2}, \dder[\theta]{s} = 0$を考えることは中心対称    であることを壊さない。この初期条件で、 
+\begin{align}  
+     \dder[]{s} (r^2 \dder[\theta]{s}) = 0 
+\end{align}    
+を得る。$\theta$が一定な平面上で物体が運動することがわかる。 
+光の場合も固有時ではないアフィンパラメーターを使って同じ議論ができる。\\
+物体の軌道を決めるためにハミルトンヤコビ方程式を考える。
+\beq
+g^{ik} \pder[S]{x^i}\pder[S]{x^k} - mc^2 = 0
+\eeq
+計量は知っているので具体的に書き直して、
+\beq\label{eq:hamiltonj}
+(1 - \frac{r_g}{r})^{-1} (\frac{\partial S}{c \partial t})^2 - (1 - \frac{r_g}{r})(\pder[S]{r})^2 - \revrt (\pder[S]{\phi})^2 - m^2c^2 = 0
+\eeq
+（$m$は運動する物体の質量、 $m^\prime$は中心物体の質量、$r_g = \frac{2 k m^\prime}{c^2}$）\\
+ここでハミルトンヤコビ方程式に、$t,\phi$が陽に現れないから、２つは循環変数である。\\
+\subsection{Hamilton-Jacobi方程式についての一般論}
+(以下冗長かもしれないのでは必要に応じて)\\
+ここではとくに、変数分離される変数が循環変数である場合を考えることに注意する。
+変数分離してハミルトンヤコビを循環変数のみの式とそれ以外に分解する。
+例えば、$t$について分離して書くと、
+\beq
+S(q, t) = W(q) + Y(t)
+\eeq
+と分離して、一般的なハミルトニアンが時間$t$に陽によらないハミルトンヤコビ方程式
+\beq
+    H(q,\pder[S]{q}) + \pder[S]{t} = 0
+\eeq
+に代入して
+\begin{align}
+    H(q, \pder[W]{q}) &= - \pder[Y]{t} = const =\alpha_1\\
+    \left\{
+\begin{array}{l}
+    \pder[Y]{t} = -\alpha_1\\
+    H(q, \pder[W]{q}) = \alpha_1\label{eq:tokusei}
+\end{array}
+\right.
+\end{align}
+を得る。任意定数は循環座標に対する保存量になる。\eqref{eq:tokusei}はHamiltonの特性関数$W(q,\alpha)$に対するハミルトンヤコビ方程式になっている。
+つまり、\eqref{eq:tokusei}を解けば、$W(q,\alpha)$が得られる。ここで$al = {\al_1, ... ,\al_N}$と書き直したのは、変数$q$の数の分だけ積分定数が出てくることからである。
+主関数$S$は、
+\beq
+S(q, \alpha, t) = W(q, \al) - \al_1 t
+\eeq
+とかける。主関数を母関数として正準変換した変数$\al, \be$についてのHamiltonの運動方程式を解けば、
+ハミルトンヤコビ方程式の解から主関数を構成したので、$\al = const, \be = const$である。また、母関数$S$についての正準変換の関係式から、
+\beq
+ \be_i = \pder[S]{\al_i}
+\eeq
+(ここまで)
+%キリングベクトルを考えることと同じ？
+%測地線方程式を解くのと同じ？
+\subsection{}
+ハミルトンヤコビ方程式\eqref{eq:hamiltonj}を解く。循環座標に注意して、解を
+\beq
+    S = - Et + M \phi + S_r(r)
+\eeq
+の形に置く。これを\eqref{eq:hamiltonj}に代入して、
+\beq
+    (1 - \frac{r_g}{r})(\pder[S]{r})^2 = (1 - \frac{r_g}{r})^{-1} \frac{E^2}{c^2} - (\frac{M^2}{r^2} + m^2c^2)
+\eeq
+よって、
+\beq
+S_r = \int \left[(1 - \frac{r_g}{r})^{-2} \frac{E^2}{c^2} - (\rgr)^{-1}(\frac{M^2}{r^2} + m^2c^2)
+ \right]^{\half}dr
+\eeq
+ハミルトンヤコビ方程式の解の任意定数$\al_i$のそれぞれについて、(今のように不完全解においても)、
+\beq\label{eq:sr}
+    \pder[S]{\al_i} = const
+\eeq
+は、$q_1, ... q_N$と$t$についての方程式を一つ与える。特に、$\al_i$が循環変数に対応した保存量であるならば、任意定数の付いていない項と$\al_i$を保存量とする循環変数との方程式が与えられる。具体的には、$\pder[S]{E} = const$では$r, t$、$\pder[S]{\phi} = const$では$r, \phi$についての方程式を得る。
+\begin{align}
+    const = -t + \pder[S]{E}\\
+    t = -const + \int \frac{\frac{2E}{c^2} (\rgr)^{-2}}{2\left[(\rgr)^{-2} \frac{E^2}{c^2} - (\rgr)^{-1}(\frac{M^2}{r^2} + m^2c^2) \right]^{\half}} dr\\
+    t = \int \frac{\frac{E}{c^2} }{(\rgr)\left[ \frac{E^2}{c^2} - (\rgr)(\frac{M^2}{r^2} + m^2c^2) \right]^{\half}} dr\\
+    ct = \int \frac{\frac{E}{mc^2} }{(\rgr)\left[ \frac{E^2}{m^2c^4} - (\rgr)(1 + \frac{M^2}{m^2c^2r^2}) \right]^{\half}} dr
+\end{align}
+軌道は、
+\begin{align}
+    \phi + \pder[S_r]{M} = const\label{eq:kidou}\\
+    \phi &= \int \frac{\frac{M}{r^2} (\rgr)^{-1}}{\left[(\rgr)^{-2} \frac{E^2}{c^2} - (\rgr)^{-1}(\frac{M^2}{r^2} + m^2c^2) \right]^{\half}} d\phi\\
+&= \int \frac{\frac{M}{r^2}}{\left[\frac{E^2}{c^2} - (\rgr)(\frac{M^2}{r^2} + m^2c^2) \right]^{\half}} d\phi\\
+\end{align}
+太陽の引力の場の中の遊星の運動について考える。遊星の速度が高速に比べて小さいことは、$\frac{r_g}{r}$が小さいことを意味する。遊星の軌道に対する相対論補正を調べる。
+動径方向は\eqref{eq:sr}において、$r(r - r_g) = r^{\prime 2}$つまり$r\sqrt{\rgr} \sim r - \frac{r_g}{2} = r^\prime$と変数変換する。
+また、$E = mc^2 + E^\prime$と静止エネルギーを分離する。
+\beq
+\frac{r^2}{r^{\prime 2}} = \frac{(r^{\prime} + \frac{r_g}{2})^2}{r^{\prime 2}} = 1 + \frac{r_g}{r^\prime} + \frac{r_g^2}{2r^{\prime 2}}
+\eeq
+を準備して、
+\begin{align}
+    S_r &= \int \left[(1 - \frac{r_g}{r})^{-2} \frac{E^2}{c^2} - (\rgr)^{-1}(\frac{M^2}{r^2} + m^2c^2)
+ \right]^{\half}dr\\
+        &= \int \left[(1 - \frac{r_g}{r})^{-2} \frac{(mc^2 + E^\prime)^2}{c^2} - (\rgr)^{-1}(\frac{M^2}{r^2} + m^2c^2)
+ \right]^{\half}dr\\
+        &= \int \left[(\frac{r^2}{r^{\prime 2}})^2 \frac{(mc^2 + E^\prime)^2}{c^2} - \frac{r^2}{r^{\prime 2}}(\frac{M^2}{r^2} + m^2c^2)
+ \right]^{\half}dr^\prime\\
+        &= \int \left[(\frac{r^2}{r^{\prime 2}})^2 \frac{m^2c^4 + 2mc^2E^\prime + E^{\prime 2}}{c^2} - \frac{1}{r^{\prime 2}}M^2 + \frac{r^2}{r^{\prime 2}}m^2c^2
+ \right]^{\half}dr^\prime\\
+        &= \int \left[(1 + 2\frac{r_g}{r^\prime} + 2\frac{r_g^2}{r^{\prime 2}}) (m^2c^2 + 2mE^\prime + \frac{E^{\prime 2}}{c^2}) - \frac{1}{r^{\prime 2}}M^2 - (1 + \frac{r_g}{r^\prime} + \frac{r_g^2}{2r^{\prime 2}})
+m^2c^2
+ \right]^{\half}dr^\prime\\
+        &= \int \left[(1 + 2\frac{r_g}{r^\prime} + 2\frac{r_g^2}{r^{\prime 2}}) (m^2c^2 + 2mE^\prime + \frac{E^{\prime 2}}{c^2}) - \frac{1}{r^{\prime 2}}M^2 - (1 + \frac{r_g}{r^\prime} + \frac{r_g^2}{2r^{\prime 2}})
+m^2c^2
+ \right]^{\half}dr^\prime\\
+        &= \int \left[
+            (2E^\prime m + \frac{E^\prime}{c^2}) + \frac{1}{r}(2m^2m^\prime k + 4 E^\prime m r_g) - \revrt (M^2 - \frac{3m^2c^2r_g^2}{2})
+        \right]^{\half}dr\\
+\end{align}
+最後の式で、$r^\prime$を$r$と書き換えた。
+このうち第三項目の$\revrt$が近日点の系統的な永年移動をもたらす。\\
+%todo もっと深く
+軌道について考える。軌道は、\eqref{eq:kidou}によって決まる。
+\beq
+\phi + \pder[S_r]{M} = const
+\eeq
+惑星が軌道を一回りする時間の間の角度$\phi$の変化は、
+\beq
+\Delta \phi = - \pder[]{M} \Delta S_r
+\eeq
+$\Delta S_r$を展開する。
+\beq
+\Delta S_r = \Delta S_0 - \frac{3m^2c^2r_g^2}{2}\frac{1}{2M}\pder[S_0]{M} = \Delta S_0 - \frac{3m^2c^2r_g^2}{4M}\pder[S_0]{M}
+\eeq
+ここで、$\Delta S_0$は近日点移動のない閉じた楕円を描く運動に対応するので、
+\beq
+\Delta \phi = - \pder[]{M} \Delta S_0 = 2\pi
+\eeq
+よって
+\beq
+\Delta \phi = 2\pi + \frac{3\pi m^2c^2r_g^2}{2M^2} = 2\pi + \frac{6\pi k^2 m^2 m^{\prime 2}}{c^2M^2}
+\eeq
+第二項が近日点移動で、
+\beq
+\delta \phi = \frac{6\pi k^2 m^2 m^{\prime 2}}{c^2M^2}
+\eeq
+とかける。公式
+\beq
+\frac{M}{km^\prime m^2} = a(1 - e^2)
+\eeq
+を使えば、
+\beq
+\delta \phi = \frac{6\pi km^{\prime}}{c^2 a(1 - e^2)}
+\eeq
+%todo 公式
+\subsection{光線の径路}
+アイコナール方程式が光線の径路を決める。
+\beq
+    g^{ik} \pder[\psi]{x^i}\pder[\psi]{x^k} = 0
+\eeq
+この式はハミルトンヤコビ方程式において$m=0$と置いたものであるから、光線の径路は任意定数を光の振動数$\omega_0 = - \pder[\psi]{t}$と取り直す。$M$も、$\rho = cM / \omega_0$と定数を導入しなおせば軌道は、
+\beq
+    \psi = \int \frac{dr}{r^2\sqrt{\frac{1}{\rho^2} - \revrt (\rgr)}}
+\eeq
+非相対論極限$r_g \rightarrow 0$で
+%積分する
+\begin{align}
+    \psi &= \int \frac{\rho dr}{r^2\sqrt{1 - \frac{\rho^2}{r^2}}}\\
+         &= - \int \frac{dt}{\sqrt{1 - t^2}}\\
+         &= \arccos(t)\\
+    \cos\phi = \frac{\rho}{r}\\
+    r \cos\phi = \rho
+\end{align}
+途中で$t = \frac{\rho}{r}$と置きかえた。
+これは、座標の原点から距離$\rho$の点を通る直線である。非相対論極限では直線が軌道であることがわかった。
+相対論的な補正を考える。
+アイコナールの動径部分は、アイコナール方程式をハミルトンヤコビ方程式と比べたこととの類推から
+\beq
+    \psi_r = \frac{\omega_0}{c} \int \sqrt{\frac{r^2}{(r-r_g)^2} - \frac{\rho^2}{r(r-r_g)}} dr
+\eeq
+\begin{align}
+    \psi_r &= \frac{\omega_0}{c} \int \sqrt{(\frac{r^2}{r^{\prime 2}})^2 - \frac{\rho^2}{r^{\prime 2}}} dr\\
+           &= \frac{\omega_0}{c} \int \sqrt{(1 + 2\frac{r_g}{r^\prime} + 2\frac{r_g^2}{r^{\prime 2}}) - \frac{\rho^2}{r^{\prime 2}}} dr\\
+           &= \frac{\omega_0}{c} \int \sqrt{1 + 2\frac{r_g}{r^\prime} - \frac{\rho^2}{r^{\prime 2}}} dr
+\end{align}
+$\frac{r_g}{r}$のべきで展開して
+\begin{align}
+    \psi_r &= \psi_r^0 + \pder[\psi_r]{\frac{r_g}{r}}|_{\frac{r_g}{r} = 0} \frac{r_g}{r}\\
+           &= \psi_r^0 + \frac{r_g \omega_0}{c} \int \frac{dr}{\sqrt{r^2 - \rho^2}}\\
+           &= \psi_r^0 + \frac{r_g \omega_0}{c} \int \frac{dr}{\rho\sqrt{\frac{r^2}{\rho^2} - 1}}\\
+           &= \psi_r^0 + \frac{r_g \omega_0}{c} \int \frac{dt}{\sqrt{t^2 - 1}}\\
+           &= \psi_r^0 + \frac{r_g \omega_0}{c} cosh^{-1}\frac{r}{\rho}
+\end{align}
+$\dder[]{x}arccoshx = \frac{1}{\sqrt{x^2 - 1}}$を使った。
+%todo 積分微妙
+光線が非常に大きな距離$R$から中心に近い点$r=\rho$まできて、再び距離$R$まで去る間の$\phi_r$の全変化は、
+距離$R$の点から$r=\rho$までやってきたときのアイコナールの変化の２倍で書けて
+\beq
+\Delta \psi_r = \Delta \psi_r^0 + 2 \frac{r_g \omega_0}{c}cosh^{-1}\frac{R}{\rho}
+\eeq
+光線に沿っての極角$\phi$の変化は、
+\begin{align}
+    \Delta \phi = - \pder[\Delta \psi_r]{M} &= - \pder[\Delta \psi_r]{M} - 
+    2 \frac{r_g \omega_0}{c} \frac{1}{\sqrt{\frac{R^2}{\rho^2} - 1}} \dder[\frac{R}{\rho}]{M}\\
+                                            &= - \pder[\Delta \psi_r]{M} - 2 r_g \frac{1}{\sqrt{\frac{R^2}{\rho^2} - 1}} R (-\frac{1}{\rho^2})\\
+                                                             &= - \pder[\Delta \psi_r]{M} - 2 r_g \frac{R}{\rho\sqrt{R^2 - \rho^2}}
+\end{align}
+$R \rightarrow \infty$の極限を考える。直線には$\Delta \phi = \pi$が対応するので、
+\beq
+    \Delta \phi = \pi + \frac{2r_g}{\rho}
+\eeq
+光線の２本の漸近線の間の角度は、$\pi$から
+\beq
+    \delta \phi = \frac{2r_g}{\rho} = \frac{4km^\prime}{c^2\rho}
+\eeq
+だけ異なる。中心から距離$\rho$のところを通る光線の屈曲である。
 \end{document}
 
