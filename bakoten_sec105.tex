@@ -1,0 +1,105 @@
+\documentclass[twocolumn]{jsarticle}
+\usepackage{amssymb,amsmath}
+\usepackage{newtxtt}
+\usepackage[utf8]{inputenc}
+\usepackage{GR}
+\newcommand{\pder}[2][]{\frac{\partial#1}{\partial#2}}
+\newcommand{\dder}[2][]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
+\newcommand{\ppder}[2][]{\frac{\partial^2#1}{{\partial#2}^2}}
+\newcommand{\pikder}[3][]{\frac{\partial^2#1}{{\partial#2 \partial#3}}}
+\newcommand{\pikdergx}[3][]{\frac{\partial^2 g_{#1}}{{\partial x^{#2} \partial x^{#3}}}}
+\newcommand{\pderx}[2][]{\pder[#1]{x^{#2}}}
+\newcommand{\pderxx}[2][]{\pder[x^{#1}]{x^{#2}}}
+\newcommand{\pdergx}[2][]{\pderx[g_{#1}]{#2}}
+\newcommand{\pderugx}[2][]{\pderx[g^{#1}]{#2}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\hfpt}{\hspace{5pt}}
+\newcommand{\ddfrac}[2]{\frac{{#1}^2}{{#2}^2}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\beql}[1]{\begin{equation}\label{#1}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\eeqp}{\;\;\;.\end{equation}}
+\newcommand{\eeqc}{\;\;\;,\end{equation}}
+\newcommand{\GaT}[3]{\Gamma^{#1}_{#2 #3}}
+\newcommand{\pderGaTx}[4]{\pderx[\GaT{#1}{#2}{#3}]{#4}}
+\newcommand{\Christfinside}[3]{\pdergx[#3 #1]{#2} + \pdergx[#2 #3]{#1} - \pdergx[#1 #2]{#3}}
+\newcommand{\Christf}[4]{\Gamma^{#1}_{#2 #3}=\half g^{#1 #4}(\Christfinside{#2}{#3}{#4})}
+\newcommand{\Ricchiinside}[2]{\pder[\Gamma^l_{#1 #2}]{x^l} - \pder[\Gamma^l_{#1 l}]{x^{#2}} 
+    + \GaT{l}{#1}{#2}\GaT{m}{l}{m} - \GaT{m}{#1}{l}\GaT{l}{#2}{m}}
+\date{\today}
+\author{山田龍}
+\title{105}
+\begin{document}
+\maketitle
+\section{物体から離れた場所での重力場}
+重力場から十分離れた場所では計量はガリレイ的な計量に対して小さな補正が付いた形にかけることを予想する。
+\beq
+g_{ik} = g^{(0)}_{ik} + h_{ik}
+\eeq
+という形に書いて、$h$のメトリックがガリレイ的なメトリックであることを要請する。
+いま、反変計量テンソルは２次の精度で
+\beq
+    g_{ik}g^{kl} = \delta^l_i
+\eeq
+から定義されて、
+\beq
+g^{ik} = g^{(0)ik}(1 + h +\half h^2-\half h^i_k h^k_l)
+\eeq
+導出：
+
+$h_{ik}$が小さいという要請をしたが、
+\beq
+    x^{\pr i} \rightarrow x^i + \xi^i
+\eeq
+というような任意の$\xi$の変換が入る余地があることに注意する。
+座標変換に対するテンソルの変換は、
+\beq
+h^{\pr}_{ik} = h_{ik} - \pder[\xi_i]{x^k} - \pder[\xi_k]{x^i} 
+\eeq
+$\because$計量の変換、
+\begin{align}
+    g^{\pr ik}(x^{\pr l}) &= g^{lm}(x^l) \pderxx[\pr i]{l} \pderxx[\pr k]{m}\\
+                          &= g^{lm}(x^l)(\delta^i_l + \pderx[\xi^i]{l})(\delta^k_m + \pderx[\xi^k]{m})\\
+                          &\sim g^{ik}(x^l) + g^{im}\pderx[\xi^k]{m}+ g^{lk}\pderx[\xi^i]{l}
+\end{align}
+ここで、
+\beq
+g^{\pr ik}(x^{\pr l}) =  g^{\pr ik}(x^l + \xi^l) = g^{\pr ik}(x^l) + \pderugx[ik]{l}\xi^l
+\eeq
+から、
+\beq
+g^{\pr ik}(x^{\pr l}) = g^{ik}(x^l) - \pderugx[ik]{l}\xi^l + g^{im}\pderx[\xi^k]{m}+ g^{lk}\pderx[\xi^i]{l}
+\eeq
+この後ろの３つの項は
+\beq
+    \xi^{i;k} + \xi^{k;i}
+\eeq
+と書かれる。
+したがって、
+\beq
+\delta g^{ik} = \xi^{i;k} + \xi^{k;i}
+\eeq
+\beq
+    g^{\pr ik} = g^{ik} + \delta g^{ik}
+\eeq
+もしキリング方程式が満たされるなら、計量はその座標変換について形を変えない。
+\section{近似}
+原点から遠く離れた場所でのシュヴァルツシルト計量は
+\beq
+    ds^2 = ds^{0 2} - \frac{2km}{c^2r}(dr^2 + c^2dt^2)
+\eeq
+であったから、
+\beq
+dr = n_\al dx^\al
+\eeq
+\beq
+dr^2 = n_\al n_\be dx^\al dx^\be
+\eeq
+とデカルト座標に直して
+\beq
+h^{(1)}_{00} = -\frac{r_g}{r},h^{(1)}_{\al \be} = -\frac{r_g}{r}n_\al n_\be,h^{(1)}_{0 \al} = 0
+\eeq
+これが１次近似。
+
+\end{document}
+
