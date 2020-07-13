@@ -25,6 +25,7 @@
 \newcommand{\Ricchiinside}[2]{\pder[\Gamma^l_{#1 #2}]{x^l} - \pder[\Gamma^l_{#1 l}]{x^{#2}} 
     + \GaT{l}{#1}{#2}\GaT{m}{l}{m} - \GaT{m}{#1}{l}\GaT{l}{#2}{m}}
 \newcommand{\ze}{(0)}
+\newcommand{\on}{(1)}
 \date{\today}
 \author{山田龍}
 \title{bakoten107-110}
@@ -85,11 +86,24 @@ R_{ik} = \half \Box h_{ik}
 todo
 \section{108}
 曲がった空間時間における重力波について考える。
-非ガリレイ
+非ガリレイ的な乱れのない計量からの補正を考える。
 \beq
 g_{ik} = g^{\ze}_{ik} + h_{ik} 
 \eeq
-
+クリストッフェル記号は、
+\beq
+\GaT{i \on}{k}{l} = \half(h^i_{k;l}+h^i_{l;k}-h^{;i}_{kl})
+\eeq
+曲率テンソルは、
+リッチテンソルは、
+混合リッチテンソルは、
+乱れのない計量はアインシュタイン方程式を満たすから、$R^{\on}_{ik} = 0$は
+\beq
+h^l_{i;k;l} + h^l_{k;i;l} - h^{~ ;l}_{ik ~;l} - h_{;i;k} = 0
+\eeq
+任意の重力波の場合にはこれは線形化されないが、
+振動数が大きい場合には単純化される。
+特徴的な距離、例えば？シュヴァルツシルト半径？？？？
 \section{109}
 \section{110}
 \end{document}
