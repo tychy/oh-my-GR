@@ -1,0 +1,96 @@
+\documentclass[twocolumn]{jsarticle}
+\usepackage{amssymb,amsmath}
+\usepackage{newtxtt}
+\usepackage[utf8]{inputenc}
+\usepackage{GR}
+\newcommand{\pder}[2][]{\frac{\partial#1}{\partial#2}}
+\newcommand{\dder}[2][]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
+\newcommand{\ppder}[2][]{\frac{\partial^2#1}{{\partial#2}^2}}
+\newcommand{\pikder}[3][]{\frac{\partial^2#1}{{\partial#2 \partial#3}}}
+\newcommand{\pikdergx}[3][]{\frac{\partial^2 g_{#1}}{{\partial x^{#2} \partial x^{#3}}}}
+\newcommand{\pderx}[2][]{\pder[#1]{x^{#2}}}
+\newcommand{\pdergx}[2][]{\pderx[g_{#1}]{#2}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\hfpt}{\hspace{5pt}}
+\newcommand{\ddfrac}[2]{\frac{{#1}^2}{{#2}^2}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\beql}[1]{\begin{equation}\label{#1}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\eeqp}{\;\;\;.\end{equation}}
+\newcommand{\eeqc}{\;\;\;,\end{equation}}
+\newcommand{\GaT}[3]{\Gamma^{#1}_{#2 #3}}
+\newcommand{\pderGaTx}[4]{\pderx[\GaT{#1}{#2}{#3}]{#4}}
+\newcommand{\Christfinside}[3]{\pdergx[#3 #1]{#2} + \pdergx[#2 #3]{#1} - \pdergx[#1 #2]{#3}}
+\newcommand{\Christf}[4]{\Gamma^{#1}_{#2 #3}=\half g^{#1 #4}(\Christfinside{#2}{#3}{#4})}
+\newcommand{\Ricchiinside}[2]{\pder[\Gamma^l_{#1 #2}]{x^l} - \pder[\Gamma^l_{#1 l}]{x^{#2}} 
+    + \GaT{l}{#1}{#2}\GaT{m}{l}{m} - \GaT{m}{#1}{l}\GaT{l}{#2}{m}}
+\newcommand{\ze}{(0)}
+\date{\today}
+\author{山田龍}
+\title{bakoten107-110}
+\begin{document}
+\maketitle
+\section{107}
+弱い重力波を考える。
+重力相互作用の伝播速度が有限であるなら、重力波の存在が考えられる。
+真空中の弱い重力場について、計量を
+\beq
+g_{ik} = g^{\ze}_{ik} + h_{ik} 
+\eeq
+一次までの精度に置いて、
+\beq
+g^{ik} = g^{\ze ik} - h^{ik} 
+\eeq
+\beq
+g = g^{\ze}(1 + h)
+\eeq
+微小変換においては、
+\beq
+h^\pr_{ik} = h_{ik} - \pderx[\xi_i]{k}- \pderx[\xi_k]{i}
+\eeq
+$h_{ik}$にゲージを入れる。
+\beq
+    \pderx[\psi^k_i]{k} = 0, \psi^k_i = h^k_i - \half \delta^k_i h
+\eeq
+曲率テンソルは、
+\beq
+R_{iklm} = \half(\pikder[h_{im}]{x^k}{x^l}+\pikder[h_{kl}]{x^i}{x^m}-
+\pikder[h_{km}]{x^i}{x^l}-\pikder[h_{il}]{x^k}{x^m})
+\eeq
+リッチテンソルは、
+\begin{align}
+    R_{ik} &= g^{lm}R_{limk}\\
+           &\sim g^{\ze lm}R_{limk}\\
+           &= \half(-g^{\ze lm}\pikder[h_{ik}]{x^l}{x^m} + \pikder[h^l_{i}]{x^l}{x^k}+ \pikder[h^l_{k}]{x^i}{x^l}-\pikder[h]{x^i}{x^k}) 
+\end{align}
+であるから、ゲージを入れれば、
+\beq
+R_{ik} = \half(-g^{\ze lm}\pikder[h_{ik}]{x^l}{x^m})
+\eeq
+と線形化される。ダランベルシアンを使って書き換えて、
+\beq
+R_{ik} = \half \Box h_{ik}
+\eeq
+\beq
+\Box = \Delta - \frac{1}{c^2} \ppder[]{t}
+\eeq
+真空中を考えているので、アインシュタイン方程式は
+\beq
+\Box h_{ik} = 0
+\eeq
+これは重力波が光速で伝播することを示す。
+平面重力波が、$h_{23},h_{22}=-h_{33}$都によって決まること、
+エネルギー運動量擬テンソルが４個の任意関数によって与えられるが、４は任意の自由な重力場におけるものであること。
+
+todo
+\section{108}
+曲がった空間時間における重力波について考える。
+非ガリレイ
+\beq
+g_{ik} = g^{\ze}_{ik} + h_{ik} 
+\eeq
+
+\section{109}
+\section{110}
+\end{document}
+
