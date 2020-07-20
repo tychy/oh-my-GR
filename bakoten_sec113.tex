@@ -28,7 +28,64 @@
 \title{113}
 \begin{document}
 \maketitle
-\section{}
+\section{開いた等方モデル}
+\beq
+ds^2 = c^2 dt^2 - a^2(t)\{d\chi^2 + \sinh^2\chi(d^2\theta + \sin^2\theta\phi^2)\}
+\eeq
+$cdt = ad\eta$とパラメータを置き換える。
+\beq
+    ds^2 = a^2(\eta)\{d^2\eta - d\chi^2 - \sinh^2\chi(d^2\theta + \sin^2\theta\phi^2)\}
+\eeq
+閉じたモデルのときと代数は同じであるので結果は変数の置き換えで形式的に得られる。
+$\eta \rightarrow i \eta, \chi \rightarrow i\chi, a \rightarrow ia$と置き換える。
+熱力学関係式から、エントロピーを一定とみなして
+\beq\label{eq:1133}
+    3\ln a = - \int \frac{d\epsilon}{\epsilon + p} + const
+\eeq
+アインシュタイン方程式の$00$の方程式から、
+\beq\label{eq:1134}
+\frac{8\pi k}{c^4} \epsilon = \frac{3}{a^4}(a^{\prime 2} - a^2)
+\eeq
+\eqref{eq:1134}から$\eta$を求める手順を踏めば、
+\beq
+    \dder[a]{\eta} = \pm a\sqrt{\frac{8\pi k}{3c^4}\epsilon a^2+1}
+\eeq
+\beq
+    \eta = \pm \int \frac{da}{a\sqrt{\frac{8\pi k}{3c^4}\epsilon a^2 + 1}}
+\eeq
+塵状物体の状態方程式
+\beq\label{eq:1135}
+    \epsilon = \mu c^2,p = 0
+\eeq
+を\eqref{eq:1133}に使って、
+\beq
+\mu a^3 = const = \frac{3c^2}{4\pi k}a_0
+\eeq
+を得る。\eqref{eq:1135}を計算する。
+\begin{align}
+    \eta &= \pm \int \frac{da}{a\sqrt{\frac{8\pi k}{3c^4}\epsilon a^2 + 1}}\\
+         &= \pm \int \frac{da}{\sqrt{\frac{8\pi k}{3c^4}\epsilon a^4 + a^2}}\\
+         &= \pm \int \frac{da}{\sqrt{(a - a_0)^2 - a_0^2}}\\
+         &= \cosh^{-1}(\frac{a+a_0}{a_0})
+\end{align}
+これから、
+\beq
+    a = a_0(\cosh \eta - 1)
+\eeq
+$c dt = a d\eta$より、
+\beq
+    dt = \frac{a_0}{c}(\cosh\eta - 1)d\eta
+\eeq
+\beq
+    t = \frac{a_0}{c}(\sinh \eta - \eta)
+\eeq
+塵状物質に対しても式を得た。閉じたモデルでは$t \propto \eta - \sin\eta$であった。
+$\eta << 1$では、
+\subsection{}
+大きな密度では
+
+\subsection{}
+曲率半径無限大
 
 \end{document}
 
