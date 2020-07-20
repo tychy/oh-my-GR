@@ -80,8 +80,13 @@ $c dt = a d\eta$より、
     t = \frac{a_0}{c}(\sinh \eta - \eta)
 \eeq
 塵状物質に対しても式を得た。閉じたモデルでは$t \propto \eta - \sin\eta$であった。
-$\eta \ll 1$では、
-
+$\eta \ll 1$での物質の密度は、
+\begin{align}
+    a \sim \half a_0  \eta^2\\
+    t \sim \frac{a_0}{6c}\eta^3\\
+    a \sim (\frac{9a_0 c^2}{2})^{\frac{1}{3}}t^{\frac{2}{3}}\\
+    \mu \sim \frac{a_0}{a^3}\frac{3c^2}{4\pi k} = \frac{1}{6\pi kt}
+\end{align}
 \subsection{}
 大きな密度では
 \beq
@@ -106,8 +111,23 @@ $\eta \ll 1$のもとでは、
 \subsection{}
 曲率半径無限大の場合を考えることができる。
 \beq
-
+    ds^2 = c^2 dt^2 - b^2(t)(dx^2 + dy^2 + dz^2)
 \eeq
-
+この形に$ds^2$を書けば、b,tの関係を定めるために解くべき式は
+\begin{align}
+    \frac{8\pi k}{c^2} &= \frac{3}{b^2}(\dder[b]{t})^2\\
+    3\ln b &= - \int \frac{d\epsilon}{p + \epsilon} + const
+\end{align}
+圧力が小さいとして解けば、
+\begin{align}
+    \mu b^3 = const\\
+    3 \ln b = - \int \frac{d\epsilon}{p + \epsilon} + const
+\end{align}
+tを小さくすれば圧力は無視できなくなるので、$p = \frac{\epsilon}{3}$を考えて、
+\begin{align}
+    \epsilon b^4 = const\\
+    b = const \sqrt{t}
+\end{align}
+$t=0$に特異点がある。
 \end{document}
 
