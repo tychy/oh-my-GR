@@ -34,8 +34,7 @@
 \beq
 g_{ij} = \eta_{ij} + al_il_j
 \eeq
-とかく。$\eta$はミンコフスキー計量。
-いま、
+とかく。$\eta$はミンコフスキー計量とする。
 \beq\label{eq:etall}
     \eta^{ij} l_il_j = 0
 \eeq
@@ -46,7 +45,7 @@ $l$がヌルベクトルであることを表す。
 l^i = \eta^{ij}l_j
 \eeq
 が添字を上付きにすると定義しよう。
-ヌルベクトルであることが確認される。
+このようにしてもヌルベクトルであることが確認される。
 \beq
     l^il_j = 0
 \eeq
@@ -58,13 +57,16 @@ g^{ij} = \eta^{ij} - al^il^j
 \begin{align}
     g^{ij}g_{jk} &= \delta^i_k\\
     g^{ij} &= \eta^{ij} + bl^il^j\\
-    (\eta^{ij} + bl^il^j)(\eta_{jk} + bl_jl_k) &= \delta^i_k + (a + b)l^il_k + abl^ul^jl_jl_k
+    (\eta^{ij} + bl^il^j)(\eta_{jk} + al_jl_k) &= \delta^i_k + (a + b)l^il_k + abl^il^jl_jl_k\\
+&= \delta^i_k + (a + b)l^il_k
 \end{align}
-より$b = -a$がわかることから得た。
-\eqref{eq:etall}より空間の計量を使って
-\beq
- l^i = g^{ij}l_j 
-\eeq
+と展開すれば反変計量テンソルの定義が成り立つためには$b = -a$となることから得た。
+この反変計量テンソルについて、\eqref{eq:etall}より空間の計量を使って
+\begin{align}
+    l^i &= g^{ij}l_j\\
+        &= (\eta^{ij}-al^il^j)l_j\\
+        &= \eta^{ij}l_j
+\end{align}
 計量からクリストッフェル記号を計算したいので、$l$の微分について考える。
 \beq
 \Christf{i}{j}{k}{m}
@@ -73,8 +75,14 @@ g^{ij} = \eta^{ij} - al^il^j
 \begin{align}
     \GaT{i}{j}{k}l^k &= \frac{g^{im}}{2}(\Christfinside{j}{k}{m})l^k\\
                      &= \frac{ag^{im}}{2}((l_ml_j)_{,k} + (l_kl_m)_{,j} - (l_jl_k)_{,m})l^k\\
+                     &= \frac{ag^{im}}{2}((l_ml_j)_{,k} + (l_{k,j}l_m) + (l_kl_{m,j}) - (l_{j,m}l_k) - (l_jl_{k,m}))l^k\\
                      &= \frac{a}{2}(l^il_j)_{,k}l^k
 \end{align}
+途中で以下の関係を使った。
+\beq
+    \partial_i(l^jl_j) = 2 l^j_{,i}l_j = 2 l^j l_{j,i} = 0
+\eeq
+
 共変微分が偏微分と一致することを確認する。
 書く
 行列式が回転に対して不変であることを使って、
@@ -82,5 +90,7 @@ g^{ij} = \eta^{ij} - al^il^j
 アインシュタイン方程式が得られる。
 リーマンテンソル、クリストッフェル記号をaのべきの形で書いて、
 アインシュタイン方程式がaによらないことから方程式を４つ得る。
+\bibliographystyle{junsrt}
+\bibliography{kerrcite}
 \end{document}
 
