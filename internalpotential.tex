@@ -24,27 +24,28 @@
 \newtheorem{thm}{定理}
 \date{\today}
 \author{山田龍}
-\title{一様な楕円体のつくる内部のポテンシャル}
+\title{一様な楕円体のつくるポテンシャル}
 \begin{document}
 \maketitle
-\section{}
+\section{内部ポテンシャル}
 この資料は\cite{Chandrasekhar1969-ny}の議論に沿っている。
+自分にとってわかりやすいように式変形を埋めて、証明を並び替えている。
 楕円体の表面が、
 \beq
 \sum_{i=1}^3 \frac{\xid}{\aid} = 1
 \eeq
 で表される楕円体を考える。楕円体内部の点$x_i$をとってこの点から立体角$d\omega$を見込む領域を楕円体から切り取って、切り取られた高さ$R_1, R_2$の２つの三角錐のつくるポテンシャル$d\phi$は、万有引力定数k、密度を$\rho$として
 \begin{align}
-d\phi &= -k \rho \int_{0}^{R_1} r dr d\omega +
+d\phi &= -k \rho \int_{0}^{R_1} r dr d\omega -
 k \rho \int_{0}^{R_2} r dr d\omega\\
       &=  -\half k \rho (R_1^2 + R_2^2) d\omega
 \end{align}
-これを立体角で積分すれば、求めたいポテンシャルの式は、
+これを立体角で積分すれば、求めたいポテンシャルの式は、立体角積分においてそれぞれの三角錐が二回数えられるから、
 \beq
 \phi = -\frac{1}{4} k \rho \int_S (R_1^2 + R_2^2) d\omega\label{eq:phyousiki}
 \eeq
 この積分を実行するためには、準備が必要である。
-$l_i = (\sin\theta \cos\phi, \sin\theta \sin\phi ,\cos\theta)$という表記を導入すれば、
+立体角に対応して、$l_i = (\sin\theta \cos\phi, \sin\theta \sin\phi ,\cos\theta)$という表記を導入すれば、
 $R = R_1, R_2$に対して
 \beq
 \sum_{i=1}^3 \left (\frac{x_i + R l_i}{a_i} \right) = 1\label{eq:daenl}
@@ -162,6 +163,8 @@ Proof:
          \right)\\
          &= -k \rho \pi a_1 a_2 a_3 \int_0^\infty \left(1 - \sumit \frac{\xid}{\aid + u}\right) \frac{du}{\Delta}
 \end{align}
+\section{外部のポテンシャル}
+
 \bibliographystyle{junsrt}
 \bibliography{hoge}
 \end{document}
